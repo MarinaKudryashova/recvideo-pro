@@ -1,0 +1,23 @@
+@media(max-width: 1200px) {
+  .burger {
+    display: block;
+    margin-right: var(--ofset-main);
+  }
+  .menu,
+  .header__social {
+    display: none;
+  }
+}
+@media(max-width: 1024px) {
+
+  .release__tab-nav {
+    gap: 30px;
+  }
+  .release__nav-item {
+    min-width: 200px;
+  }
+  .release__nav-btn {
+    padding: 16px 50px 15px;
+    }
+
+}

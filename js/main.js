@@ -1,16 +1,71 @@
- // плавный скролл по якорям
- const smoothLinks = document.querySelectorAll('a[href^="#"]');
- for (let smoothLink of smoothLinks) {
-    smoothLink.addEventListener('click', function (e) {
-      e.preventDefault();
-      const id = smoothLink.getAttribute('href');
-      document.querySelector(id).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    });
-  }
+// открытие меню-бургер
+let burger = document.querySelector('.burger');
+let menu = document.querySelector('.menu');
+let menuLink = document.querySelectorAll('.menu__link');
+const body = document.body;
 
+let disableScroll = function() {
+  let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
+  let paddingTop = window.scrollY;
+  body.dataset.position = paddingTop;
+  // body.style.paddingRight = paddingOffset;
+  body.style.top = -paddingTop + 'px';
+  body.classList.add('disable-scroll');
+}
+
+let enableScroll = function() {
+let paddingTop = parseInt(body.dataset.position, 10);
+  // body.style.paddingRight = '0px';
+  body.style.top = 'auto';
+  body.classList.remove('disable-scroll');
+  window.scroll({top: paddingTop, left: 0});
+  body.removeAttribute('data-position');
+}
+
+burger.addEventListener('click', function() {
+  burger.classList.toggle('is-open');
+  menu.classList.toggle('menu-open');
+  if (burger.getAttribute('aria-label') === 'Открыть меню') {
+    burger.setAttribute("aria-label", 'Закрыть меню');
+    disableScroll();
+  } else {
+    burger.setAttribute("aria-label", 'Открыть меню');
+    enableScroll();
+  }
+});
+
+let menuClose = function() {
+  burger.classList.remove('is-open');
+  burger.setAttribute("aria-label", 'Открыть меню');
+  menu.classList.remove('menu-open');
+  enableScroll();
+};
+
+menuLink.forEach(function(e) {
+  e.addEventListener('click', function() {
+    menuClose();
+  });
+});
+
+document.addEventListener('click', function(el) {
+    let target = el.target;
+    if(!target.closest('.header__burger') && !target.closest('.menu__list') && burger.classList.contains('is-open')) {
+    menuClose();
+  }
+});
+
+// плавный скролл по якорям
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+for (let smoothLink of smoothLinks) {
+  smoothLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    const id = smoothLink.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+}
 // Валидация и отправка формы
 const form = document.querySelector('.form__feedback');
 const input = form.querySelector('.form__input');
@@ -90,53 +145,19 @@ function isValidEmail(inputValue) {
   return valid;
 }
 // проверка валидности введенного значения в поля
-function inputValid(el) {
-  const inputValue = el.value;
-  // const inputValue = input.value;
+function inputValid(inputValue) {
   const validPhon = isValidTel(inputValue);
   const validEmail = isValidEmail(inputValue);
   // Проверяем, что поля заполнены
   if (!inputValue) {
-    el.setAttribute("is-valid", "0");
-    errorMessage = 'Пожалуйста введите ваш телефон или email';
-    error.innerHTML = errorMessage;
-    return;
+    return false;
   }
-
   // Проверяем, введенное значение является ли телефоном или email
   if (!validPhon && !validEmail) {
-    el.setAttribute("is-valid", "0");
-    errorMessage = 'Введите правильно ваш телефон или email';
-    error.innerHTML = errorMessage;
-    return;
-  } else {
-    el.setAttribute("is-valid", "1");
+    return false;
   }
+  return true;
 }
-// function buttonHandler(e) {
-//   const allValid = [];
-//   validFormArr.forEach((el) => {
-//     allValid.push(el.getAttribute("is-valid"));
-//   });
-//   const isAllValid = allValid.reduce((acc, current) => {
-//     return acc && current;
-//   });
-
-//   if (!Boolean(Number(isAllValid))) {
-//     e.preventDefault();
-//   }
-// }
-// проверка валидности перед отправкой формы
-// function buttonHandler(e) {
-//   form.forEach((el) => {
-//     let valid = el.getAttribute("is-valid");
-//     console.log(valid);
-//   });
-//   e.preventDefault();
-// }
-
-// btn.addEventListener("click", buttonHandler);
-// btn.addEventListener("click", buttonHandler);
 // ???
 // const ajaxSend = async (formData) => {
 //   const response = await fetch("mail.php", {
@@ -155,27 +176,19 @@ form.addEventListener('submit', function(evt) {
 
     // Получаем значения полей формы
     const inputValue = input.value;
-    // console.log(inputValid(inputValue));
-    // inputValid(inputValue)
-    // const validPhon = isValidTel(inputValue);
-    // const validEmail = isValidEmail(inputValue);
+    console.log(inputValid(inputValue));
 
     // // Проверяем, что поля заполнены
-    // if (!inputValue) {
-    //   errorMessage = 'Пожалуйста введите ваш телефон или email';
-    //   error.innerHTML = errorMessage;
-    //   return;
-    // }
+    if (!inputValid(inputValue)) {
+      errorMessage = 'Пожалуйста введите ваш телефон или email';
+      error.innerHTML = errorMessage;
+      return;
+    }
 
-    // // Проверяем, введенное значение является ли телефоном или email
-    // if (!validPhon && !validEmail) {
-    //   errorMessage = 'Введите правильно ваш телефон или email';
-    //   error.innerHTML = errorMessage;
-    //   return;
-    // } else {
-    //   form.submit();
-    //   error.innerHTML = '';
-    // }
+
+    // тут все хорошо и можно отправлять форму
+
+    console.log("Ok!!!!!!!!!!!!")
 
 // Здесь определяется поведение при попытке отправить данные
 

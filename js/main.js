@@ -8,14 +8,14 @@ let disableScroll = function() {
   let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
   let paddingTop = window.scrollY;
   body.dataset.position = paddingTop;
-  // body.style.paddingRight = paddingOffset;
+  body.style.paddingRight = paddingOffset;
   body.style.top = -paddingTop + 'px';
   body.classList.add('disable-scroll');
 }
 
 let enableScroll = function() {
 let paddingTop = parseInt(body.dataset.position, 10);
-  // body.style.paddingRight = '0px';
+  body.style.paddingRight = '0px';
   body.style.top = 'auto';
   body.classList.remove('disable-scroll');
   window.scroll({top: paddingTop, left: 0});

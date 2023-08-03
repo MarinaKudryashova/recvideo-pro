@@ -173,7 +173,7 @@ body {
   /* margin: 0 var(--ofset-main) 0 auto; */
   padding: 10px 40px;
   border-radius: 30px;
-  outline: 1px solid var(--accent-color);
+  border: 1px solid var(--accent-color);
   min-width: 163px;
   text-transform: uppercase;
   font-size: 14px;
@@ -216,7 +216,7 @@ body {
   visibility: hidden;
   transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
 }
-.menu__link:focus-visible {
+.menu__link:focus {
   outline: none;
 }
 .menu__link:focus-visible,
@@ -239,8 +239,9 @@ body {
   width: 40px;
   height: 40px;
   z-index: 10;
-  background-color: var(--accent-color);
+  /* background-color: var(--accent-color); */
   background-color: transparent;
+  outline: none;
   -webkit-transition: background-color .3s ease-in-out;
   -o-transition: background-color .3s ease-in-out;
   transition: background-color .3s ease-in-out;
@@ -254,13 +255,9 @@ body {
   margin: 0;
   width: calc(100% - 2*8px);
   height: 2px;
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
   background-color: var(--dark-bg-color);
-  -webkit-transition: -webkit-transform ease .5s;
-  transition: -webkit-transform ease .5s;
-  -o-transition: transform ease .5s;
-  transition: transform ease .5s;
-  transition: transform ease .5s, -webkit-transform ease .5s;
+  transition: transform ease .5s, background-color ease .3s;
   will-change: transform;
   }
   .burger__lines {
@@ -279,23 +276,24 @@ body {
   bottom: 8px;
   width: 100%;
   }
-  .burger:focus,
+  .burger:focus-visible:not(.is-open),
   .burger:hover {
     /* background-color: var(--dark-bg-color); */
-    background-color: var(--hover-color);
+    /* background-color: var(--hover-color); */
+    background-color: var(--accent-color);
     outline: none;
   }
-  .burger:focus .burger__lines,
-  .burger:focus .burger__lines::before,
-  .burger:focus .burger__lines::after,
+  /* .burger:focus-visible:not(.is-open) .burger__lines,
+  .burger:focus-visible:not(.is-open) .burger__lines::before,
+  .burger:focus-visible:not(.is-open) .burger__lines::after, */
   .burger:hover .burger__lines,
   .burger:hover .burger__lines::before,
   .burger:hover .burger__lines::after {
     background-color: var(--white-color);
   }
-  .burger:active .burger__lines,
-  .burger:active .burger__lines::before,
-  .burger:active .burger__lines::after {
+  .burger:active:not(.is-open) .burger__lines,
+  .burger:active:not(.is-open) .burger__lines::before,
+  .burger:active:not(.is-open) .burger__lines::after {
   -webkit-transition: -webkit-transform .5s ease-in-out;
   transition: -webkit-transform .5s ease-in-out;
   -o-transition: transform .5s ease-in-out;
@@ -463,22 +461,19 @@ body {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
-  line-height: 68px;
+  line-height: 142%;/* 68px */
   letter-spacing: 1.54px;
   color: var(--accent-color);
 }
 .card__descr {
   margin: 0;
-  /* --padding-left: 164px; */
-  /* padding-left: 164px; */
   width: 100%;
-  /* max-width: calc(382px + var(--padding-left)); */
   max-width: 382px;
   font-family: var(--font-family);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 38px;
+  line-height: 190%;/* 38px */
   letter-spacing: 1.2px;
   color: var(--black-color);
   transform: translateX(164px);

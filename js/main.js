@@ -1,4 +1,5 @@
-// открытие меню-бургер
+document.addEventListener('DOMContentLoaded', function(){
+  // открытие меню-бургер
 let burger = document.querySelector('.burger');
 let menu = document.querySelector('.menu');
 let menuLink = document.querySelectorAll('.menu-link');
@@ -206,4 +207,6 @@ form.addEventListener('submit', function(evt) {
   //         form.reset(); // очищаем поля формы
   //     })
   //     .catch((err) => console.error(err))
+});
+
 });

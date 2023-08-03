@@ -46,8 +46,9 @@
     position: absolute;
     top: -44px;
     right: 50px;
-    width: calc(380px - (24px + 55px));
-    height: 118px;
+    /* width: calc(380px - (24px + 55px)); */
+    width: 315px;
+    height: 85px;
     opacity: 0;
     visibility: hidden;
     background-color: var(--white-color);
@@ -66,7 +67,7 @@
     z-index: 10;
     overflow-y: auto;
     display: block;
-    padding: 126px 24px 50px;
+    padding: 100px 24px;
     width: 40vw;
     min-width: 380px;
     height: 100vh;
@@ -85,7 +86,7 @@
   }
   .menu__list {
     flex-direction: column;
-    /* gap: 0; */
+    gap: 0;
     /* overflow-y: auto; */
   }
   .menu__list .menu__item:not(:last-child) {
@@ -252,7 +253,7 @@
   .menu {
     width: 100vw;
     min-width: 380px;
-    max-height: 100%;
+    /* max-height: 100%; */
   }
   .promo__title {
     padding: 0px;

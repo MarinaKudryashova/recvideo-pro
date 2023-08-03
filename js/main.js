@@ -1,7 +1,7 @@
 // открытие меню-бургер
 let burger = document.querySelector('.burger');
 let menu = document.querySelector('.menu');
-let menuLink = document.querySelectorAll('.menu__link');
+let menuLink = document.querySelectorAll('.menu-link');
 const body = document.body;
 
 let disableScroll = function() {

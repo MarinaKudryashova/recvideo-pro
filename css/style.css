@@ -183,8 +183,21 @@ body {
   background-color: var(--accent-color);
   transition: background-color .3s ease-in-out;
 }
-.header__btn:focus-visible,
-.header__btn:hover {
+.link-btn {
+  padding: 10px 40px;
+  border-radius: 30px;
+  border: 1px solid var(--accent-color);
+  min-width: 163px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  transition: background-color .3s ease-in-out;
+}
+.link-btn:focus-visible,
+.link-btn:hover {
   /* background-color: var(--dark-bg-color); */
   background-color: var(--hover-color);
 }
@@ -246,6 +259,7 @@ body {
   -o-transition: background-color .3s ease-in-out;
   transition: background-color .3s ease-in-out;
   }
+
   .burger__lines,
   .burger__lines::after,
   .burger__lines::before {
@@ -315,9 +329,11 @@ body {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   }
-  .menu__social {
+  .menu__social,
+  .menu__btn  {
     display: none;
   }
+
   /* section promo */
 .promo__content {
   position: relative;
@@ -388,7 +404,7 @@ body {
 
 /* section release */
 .release {
-  /* display: none; */
+  display: none;
   padding-top: var(--ofset-section);
 }
 .release__tab-nav {
@@ -429,20 +445,16 @@ body {
 
 /* section advantages */
 .advantages {
-  margin-top: 957px;
+  /* margin-top: 957px; */
   padding-top: var(--ofset-section);
 }
 .advantages__title {
   margin-bottom: 56px;
 }
 .advantages__list {
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: start;
-  gap: 44px 116px; */
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  gap: 48px 48px;
+  gap: 48px;
 }
 .advantages__item {
   grid-column: 4 span;
@@ -557,7 +569,7 @@ body {
   position: absolute;
   top: -50%;
   left: 5%;;
-  font-size: 20px;
+  font-size: 16px;
   font-style: italic;
   font-weight: 400;
   line-height: 30px;
@@ -587,7 +599,7 @@ body {
 
 /* section contacts */
 .contacts {
-  padding-top: 30px;
+  /* padding-top: 30px; */
   padding-bottom: var(--ofset-section);
   background-color: var(--dark-bg-color);
 }

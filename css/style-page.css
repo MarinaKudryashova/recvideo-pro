@@ -23,18 +23,25 @@
   color: var(--black-color);
 }
 .link-index {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 25px;
   padding-top: 25px;
   padding-left: 50px;
   color: var(--black-color);
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
 }
 .link-index__icon {
   margin-right: 8px;
   fill: currentColor;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .link-index:focus-visible,
 .link-index:hover {

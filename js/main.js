@@ -123,6 +123,9 @@ form.addEventListener('input', (event) => {
 
   event.target.value = value;
 
+  // убираем текст ошибки
+  error.innerHTML = '';
+
   return true;
 });
 

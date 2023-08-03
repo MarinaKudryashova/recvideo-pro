@@ -448,9 +448,6 @@ body {
   /* margin-top: 957px; */
   padding-top: var(--ofset-section);
 }
-.advantages__title {
-  margin-bottom: 56px;
-}
 .advantages__list {
   display: grid;
   grid-template-columns: repeat(8, 1fr);

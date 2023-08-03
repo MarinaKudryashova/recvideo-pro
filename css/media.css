@@ -142,6 +142,10 @@
 }
 
 @media(max-width: 768px) {
+  :root {
+    --ofset-main: 24px;
+    --ofset-section: 50px;
+  }
   .header__social {
     display: none;
   }
@@ -206,10 +210,10 @@
   }
 }
 @media(max-width: 577px) {
-  :root {
-    --ofset-main: 28px;
-    --ofset-section: 32px;
-  }
+  /* :root {
+    --ofset-main: 24px;
+    --ofset-section: 50px;
+  } */
   .section-title {
     font-size: 16px;
     /* line-height: normal; */
@@ -250,6 +254,7 @@
     padding: 0;
   }
   .contacts__mail {
+    margin-bottom: var(--ofset-main);;
     font-size: 16px;
   }
   .footer__content {

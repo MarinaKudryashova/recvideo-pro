@@ -33,8 +33,8 @@
   --white-color: #fff;
 	--dark-bg-color: #000;
 	--grey-color: #414141;
-  --hover-color: #c0130e;
-  /* --hover-color: #414141; */
+  /* --hover-color: #c0130e; */
+  --hover-color: #414141;
   --ofset-main: 50px;
   --ofset-section: 100px;
 }
@@ -699,5 +699,6 @@ body {
 }
 .footer__policy:focus-visible,
 .footer__policy:hover {
-  color: var(--hover-color);
+  /* color: var(--hover-color); */
+  color: var(--accent-color);
 }

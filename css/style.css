@@ -653,3 +653,57 @@ body {
 .footer__policy:hover {
   color: var(--hover-color);
 }
+
+
+/* modal-policy */
+.modal {
+  text-align: center;
+}
+.modal-content {
+  /* -webkit-box-shadow: none; */
+  /* box-shadow: none; */
+  /* border: none; */
+  border-radius: 20px;
+}
+.modal-header {
+  padding: 30px 30px 0;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+}
+.modal-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.modal-body {
+  position: relative;
+  padding: 20px 30px 30px;
+}
+.modal-body button.main-btn {
+  width: 100%;
+}
+.modal-body .form-control {
+  text-align: center;
+  height: 50px;
+  padding: 14px 40px;
+  border-radius: 50px;
+  box-shadow: none;
+}
+button.close {
+  font-size: 40px;
+  position: absolute;
+  top: -23px;
+  right: -18px;
+  transition: 0.3s all;
+  color: #fff;
+  opacity: 0.5;
+  font-weight: 100;
+  text-shadow: none;
+}
+.close:focus,
+.close:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+

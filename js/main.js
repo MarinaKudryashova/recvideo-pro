@@ -205,5 +205,52 @@ form.addEventListener('submit', function(evt) {
   //     .catch((err) => console.error(err))
 });
 
+// // modal-windows
+// const btnsModalOpen = document.querySelectorAll('.gallery__btn-open');
+// const modalOverlay = document.querySelector('.overlay');
+// const modals = document.querySelectorAll('.modal');
+// const btnsModalClose = document.querySelectorAll('.modal__btn-close');
+
+// btnsModalOpen.forEach(function(btn) {
+//     btn.addEventListener('click', function(e) {
+//         let path =e.currentTarget.getAttribute('data-path');
+//         modals.forEach(function(el) {
+//             el.classList.remove('modal--visible');
+//         });
+//         // e.currentTarget.setAttribute('aria-expanded', true);
+//         document.querySelector(`[data-target="${path}"]`).classList.add('modal--visible');
+//         modalOverlay.classList.add('overlay--visible');
+//         disableScroll();
+//     });
+// });
+
+// let modalClose = function() {
+//   modalOverlay.classList.remove('overlay--visible');
+//   enableScroll();
+//   modals.forEach(function(el) {
+//     el.classList.remove('modal--visible');
+//   });
+// };
+
+// // закрытие закрытие окна по close
+// btnsModalClose.forEach(function(btn) {
+//   btn.addEventListener('click', function(e) {
+//     modalClose();
+//   });
+// });
+
+// // закрытие закрытие окна по click
+// modalOverlay.addEventListener('click', function(e) {
+//     if(e.target == modalOverlay) {
+//       modalClose();
+//     }
+// });
+// // закрытие по esc
+// document.addEventListener('keydown', function(e) {
+//   if (e.key === 'Escape') {
+//     modalClose();
+//   }
+// });
+
 
 

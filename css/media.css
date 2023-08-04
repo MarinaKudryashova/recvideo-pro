@@ -6,7 +6,7 @@
     gap: 24px;
   } */
   /* for Safari in Mac */
-  .menu__link:not(:last-child) {
+  .menu__item:not(:last-child) {
     margin-right: 24px;
   }
   /* section adout */

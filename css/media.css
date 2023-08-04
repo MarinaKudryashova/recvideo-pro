@@ -2,8 +2,12 @@
   .header__logo {
     margin-right: var(--ofset-main);
   }
-  .menu__list {
+  /* .menu__list {
     gap: 24px;
+  } */
+  /* for Safari in Mac */
+  .menu__link:not(:last-child) {
+    margin-right: 24px;
   }
   /* section adout */
   .about__slogan {
@@ -195,7 +199,11 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    gap: 24px;
+    /* gap: 24px; */
+  }
+  /* for Safari in Mac */
+  .menu__social .social__item:not(:last-child) {
+    margin-right: 24px;
   }
   .menu__social svg {
     width: 40px;

@@ -34,7 +34,8 @@
 	--dark-bg-color: #000;
 	--grey-color: #414141;
   /* --hover-color: #c0130e; */
-  --hover-color: #414141;
+  /* --hover-color: #414141; */
+  --hover-color: #fff;
   --ofset-main: 50px;
   --ofset-section: 100px;
 }
@@ -153,6 +154,10 @@ body {
           align-items: center;
   gap: 24px;
 }
+/* for Safari in Mac */
+/* .header__social .social__item:not(:last-child) {
+  margin-right: 24px;
+} */
 .header__social svg {
   width: 40px;
   height: 40px;
@@ -160,17 +165,18 @@ body {
      object-fit: cover;
 }
 .social__icon {
-  outline: 1px solid var(--accent-color);
-  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
   border-radius: 100%;
-  -webkit-transition: background-color .3s ease-in-out;
-  -o-transition: background-color .3s ease-in-out;
-  transition: background-color .3s ease-in-out;
+  fill: var(--white-color);
+  background-color: var(--accent-color);
+  -webkit-transition: background-color .3s ease-in-out, fill .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, fill .3s ease-in-out;
+  transition: background-color .3s ease-in-out, fill .3s ease-in-out;
 }
 .social__link:focus-visible .social__icon,
 .social__link:hover .social__icon {
-  /* background-color: var(--dark-bg-color); */
   background-color: var(--hover-color);
+  fill: var(--black-color);
 }
 .header__btn {
   margin-right: var(--ofset-main);
@@ -188,13 +194,13 @@ body {
   line-height: normal;
   color: var(--white-color);
   background-color: var(--accent-color);
-  -webkit-transition: background-color .3s ease-in-out;
-  -o-transition: background-color .3s ease-in-out;
-  transition: background-color .3s ease-in-out;
+  -webkit-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 .link-btn:focus-visible,
 .link-btn:hover {
-  /* background-color: var(--dark-bg-color); */
+  color: var(--black-color);
   background-color: var(--hover-color);
 }
 .menu__list {
@@ -204,7 +210,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: var(--ofset-main);
+  /* gap: var(--ofset-main); */
+}
+.menu__item:not(:last-child) { /* for Safari in Mac */
+  margin-right: var(--ofset-main);
 }
 .menu__link {
   position: relative;
@@ -593,14 +602,17 @@ body {
   line-height: 30px;
   letter-spacing: 0.6px;
   color: var(--grey-color);
-  -webkit-transition: border-color .3s ease-in-out;
-  -o-transition: border-color .3s ease-in-out;
-  transition: border-color .3s ease-in-out;
+  -webkit-transition: border-color .3s ease-in-out, box-shadow .3s ease-in-out;
+  -o-transition: border-color .3s ease-in-out, box-shadow .3s ease-in-out;
+  transition: border-color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 .form__input:focus-visible,
 .form__input:hover {
   outline: none;
   border-color: var(--dark-bg-color);
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.1);
 }
 .error {
   position: absolute;
@@ -619,7 +631,8 @@ body {
 }
 .form__btn {
   margin-left: -1px;
-  padding: 16.3px 84px;
+  padding: 15.4px 84px;
+  border: 1px solid var(--accent-color);
   border-radius: 0px 30px 30px 0px;
   text-transform: uppercase;
   font-family: var(--font-family);
@@ -630,13 +643,13 @@ body {
   letter-spacing: 1.92px;
   color: var(--white-color);
   background-color: var(--accent-color);
-  -webkit-transition: background-color .3s ease-in-out;
-  -o-transition: background-color .3s ease-in-out;
-  transition: background-color .3s ease-in-out;
+  -webkit-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  -o-transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 .form__btn:focus-visible,
 .form__btn:hover {
-  /* background-color: var(--dark-bg-color); */
+  color: var(--black-color);
   background-color: var(--hover-color);
 }
 
@@ -678,9 +691,12 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 32px;
+  /* gap: 32px; */
 }
-
+/* for Safari in Mac */
+.contacts__social-list .social__item:not(:last-child) {
+  margin-right: 32px;
+}
 
 .footer {
   padding-top: 33px;

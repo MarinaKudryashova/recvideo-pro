@@ -22,6 +22,20 @@
         -ms-transform: translateX(64px);
             transform: translateX(64px);
   }
+  .filter__nav {
+    gap: 3vw;
+  }
+  .filter__item{
+    min-width: 21vw;
+  }
+  .filter__btn {
+    padding: 1.3vw 1.6vw;
+    font-size: 2vw;
+  }
+  .video {
+    grid-auto-rows: 23.3vw;
+    gap: 2.5vw;
+  }
 }
 
 @media(max-width: 1024px) {
@@ -40,11 +54,7 @@
   .form__link:focus-visible {
     color: var(--accent-color);
   }
-  .form__link:focus-visible::after,
-  .form__link:hover::after {
-    opacity: 0;
-    visibility: hidden;
-  }
+
 }
 
 @media(max-width: 992px) {
@@ -145,16 +155,18 @@
     width: 100%;
     font-size: 18px;
   }
-
-  .release__tab-nav {
-    gap: 30px;
+  /* .video__item:nth-child(1) {
+    grid-column: 4 span;
   }
-  .release__nav-item {
-    min-width: 200px;
+  .video__item:nth-child(2) {
+    grid-column: 8 span;
   }
-  .release__nav-btn {
-    padding: 16px 50px 15px;
+  .video__item:nth-child(3) {
+    grid-column: 4 span;
   }
+  .video__item:nth-child(4) {
+    grid-column: 4 span;
+  } */
   .card__title {
     font-size: 40px;
   }
@@ -236,6 +248,67 @@
     gap: 48px;
     padding: 0 var(--ofset-main);
   }
+  /* .filter__nav {
+    gap: 20px;
+  }
+  .filter__item{
+    min-width: auto;
+  }
+  .filter__btn {
+    padding: 12px 16px;
+    font-size: 14px;
+  } */
+  .video {
+    grid-auto-rows: 280px;
+  }
+  .video__item:nth-child(n+1) {
+    grid-row: 1 span;
+    grid-column: 12 span;
+  }
+
+  /* .video__item:nth-child(1) {
+    grid-row: 2 span;
+    grid-column:  3 span;
+  }
+  .video__item:nth-child(2) {
+    grid-column: 9 span;
+  }
+  .video__item:nth-child(3) {
+    grid-column: 6 span;
+  }
+  .video__item:nth-child(4) {
+    grid-column: 3 span;
+  }
+  .video__item:nth-child(1) {
+    grid-row: 2 span;
+    grid-column:  4 span;
+  }
+  .video__item:nth-child(2) {
+    grid-column: 8 span;
+  }
+  .video__item:nth-child(3) {
+    grid-column: 4 span;
+  }
+  .video__item:nth-child(4) {
+    grid-column: 4 span;
+  } */
+  /* .video__item:nth-child(odd) {
+    grid-row: 1 span;
+    grid-column: 4 span;
+  }
+  .video__item:nth-child(even) {
+    grid-row: 1 span;
+    grid-column: 8 span;
+  } */
+  /* .video__item:nth-child(n+1) {
+    grid-row: 1 span;
+    grid-column: 12 span;
+  } */
+  /* .video__item:nth-child(n+1) {
+    grid-row: 1 span;
+    grid-column: 6 span;
+  } */
+
   .card__title {
     width: 100%;
   }
@@ -323,6 +396,15 @@
   .advantages__list {
     padding: 0;
   }
+
+  .video {
+    grid-auto-rows: 280px;
+  }
+  .video__item:nth-child(n+1) {
+    grid-row: 1 span;
+    grid-column: 12 span;
+  }
+
   .error {
     font-size: 14px;
   }

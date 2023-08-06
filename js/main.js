@@ -55,6 +55,95 @@ document.addEventListener('click', function(el) {
   }
 });
 
+// fiter sextion release
+const filterNav = document.querySelector('.filter__nav')
+const fiterBtns = document.querySelectorAll('.filter__btn');
+const filterInfo = document.querySelectorAll('.video__item');
+
+fiterBtns.forEach(function(btn) {
+  btn.addEventListener('click', (event) => {
+    let currentCategory  = event.currentTarget.getAttribute('data-filter');
+    console.log(currentCategory);
+
+    fiterBtns.forEach((btn) => {
+      btn.removeAttribute('data-active');
+      event.currentTarget.setAttribute('data-active', 'true');
+    });
+
+    filterInfo.forEach((info) => {
+      info.removeAttribute('data-hidden');
+
+      if(currentCategory !== 'all' && info.getAttribute('data-target') !== currentCategory) {
+        info.setAttribute('data-hidden', 'true');
+      }
+
+    });
+
+  });
+});
+
+// иницилизация slider-filter
+const partnersSlider = new Swiper(".partners-slider", {
+  slideClass: 'partners-slider__slide',
+  wrapperClass: 'partners-slider__wrapper',
+  navigation: {
+    nextEl: '.partners__btn-next',
+    prevEl: '.partners__btn-prev',
+  },
+  // breakpoints: {
+  //   // when window width is >= 320px
+  //   320: {
+  //     slidesPerView: 1,
+  //     slidesPerGroup: 1,
+  //     spaceBetween: 15,
+  //   },
+  //   // when window width is >= 576px
+  //   576: {
+  //     slidesPerView: 2,
+  //     slidesPerGroup: 2,
+  //     spaceBetween: 15,
+  //   },
+  //   // when window width is >= 768px
+  //   768: {
+  //     slidesPerView: 2,
+  //     slidesPerGroup: 2,
+  //     spaceBetween: 34,
+  //   },
+  //   // when window width is >= 992px
+  //   1024: {
+  //     slidesPerView: 2,
+  //     slidesPerGroup: 2,
+  //     spaceBetween: 50,
+  //   },
+  //   // when window width is >= 992px
+  //   1201: {
+  //     slidesPerView: 3,
+  //     slidesPerGroup: 3,
+  //     spaceBetween: 50,
+  //   },
+  // },
+
+  a11y: {
+    enabled: true,
+
+
+    prevSlideMessage: 'Предыдущий слайд',
+    nextSlideMessage: 'Следующий слайд',
+    firstSlideMessage: 'Это первый слайд',
+    lastSlideMessage: 'Это последний слайд',
+    slideLabelMessage: 'Слайд {{index}} из {{slidesLength}}',
+  }
+});
+
+// function filter() {
+//   filterNav.addEventListener('click', function(e) {
+//     let targetId = e.target.datadet.path;
+//     // let path = e.currentTarget.getAttribute('data-path');
+//     // document.querySelector(`[data-target="${path}"]`).setAttribute('data-active');
+//     console.log(targetId);
+//   });
+// };
+// filter();
 // плавный скролл по якорям
 const smoothLinks = document.querySelectorAll('a[href^="#"]');
 for (let smoothLink of smoothLinks) {

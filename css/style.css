@@ -468,14 +468,35 @@ body {
   color: var(--white-color);
   background-color: var(--accent-color);
 }
-.video {
+
+.filter-slider[data-slider="true"] {
+  position: relative;
+  overflow: hidden;
+}
+.filter-slider[data-slider="true"] .video {
+  display: flex;
+  align-items: center;
+}
+.filter-slider[data-slider="true"] .video__item {
+  position: relative;
+  flex-shrink: 0;
+}
+.filter-slider[data-slider="true"] .video__content {
+  min-height: 380px;
+  /* min-height: 280px; */
+  overflow: hidden;
+}
+
+
+.video.grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: 280px;
   gap: 30px;
 }
-.video__item {
+.video__item[data-hidden='false'] {
   position: relative;
+  display: block;
   overflow: hidden;
   opacity: 1;
   visibility: visible;
@@ -483,40 +504,32 @@ body {
   transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
 }
 .video__item[data-hidden='true'] {
+  display: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
 }
-/* .video .video__item[data-hidden='true'] {
-  display: flex;
-
-} */
-.video__item:nth-child(1) {
+.grid .video__item:nth-child(1) {
   grid-row: 2 span;
   grid-column: 3 span;
 }
-.video__item:nth-child(2) {
+.grid .video__item:nth-child(2) {
   grid-row: 1 span;
   grid-column: 9 span;
 }
-.video__item:nth-child(3) {
+.grid .video__item:nth-child(3) {
   grid-row: 1 span;
   grid-column: 6 span;
 }
-.video__item:nth-child(4) {
+.grid .video__item:nth-child(4) {
   grid-row: 1 span;
   grid-column: 3 span;
 }
-.video__item:nth-child(n+5) {
+.grid .video__item:nth-child(n+5) {
   grid-row: 1 span;
   grid-column: 6 span;
 }
 
 
-
-.video__content {
-
-}
 .video__item picture {
   font-size: 0;
 }
@@ -530,7 +543,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.video__btn {
+/* .video__btn {
   position: absolute;
   inset: 0;
   display: flex;
@@ -549,7 +562,7 @@ body {
 .video__btn:hover .video__icon {
   opacity: 1;
   visibility: visible;
-}
+} */
 
 /* section advantages */
 .advantages {

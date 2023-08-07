@@ -59,7 +59,10 @@ document.addEventListener('click', function(el) {
 const filterNav = document.querySelector('.filter__nav')
 const fiterBtns = document.querySelectorAll('.filter__btn');
 const filterInfo = document.querySelectorAll('.video__item');
-
+const video = document.querySelector('.video');
+const filterSlider = document.querySelector('.filter-slider');
+let releaseSlider;
+// slider-wrapper
 fiterBtns.forEach(function(btn) {
   btn.addEventListener('click', (event) => {
     let currentCategory  = event.currentTarget.getAttribute('data-filter');
@@ -71,69 +74,53 @@ fiterBtns.forEach(function(btn) {
     });
 
     filterInfo.forEach((info) => {
-      info.removeAttribute('data-hidden');
+      info.setAttribute('data-hidden', 'false');
 
       if(currentCategory !== 'all' && info.getAttribute('data-target') !== currentCategory) {
         info.setAttribute('data-hidden', 'true');
-      }
+        video.classList.remove('grid');
+        filterSlider.setAttribute('data-slider', 'true');
 
+        // иницилизация slider-filter
+        releaseSlider = new Swiper('.filter-slider', {
+          slideClass: 'video__item',
+          wrapperClass: 'video',
+            //кол-во слайдов одвовременно видно в контейнере
+            slidesPerView: 1.5,
+            spaceBetween: 50,
+          // navigation: {
+          //   nextEl: '.filter__btn-next',
+          //   prevEl: '.filter__btn-prev',
+          // },
+        });
+        releaseSlider.update();
+      }
     });
 
-  });
-});
-
-// иницилизация slider-filter
-const partnersSlider = new Swiper(".partners-slider", {
-  slideClass: 'partners-slider__slide',
-  wrapperClass: 'partners-slider__wrapper',
-  navigation: {
-    nextEl: '.partners__btn-next',
-    prevEl: '.partners__btn-prev',
-  },
-  // breakpoints: {
-  //   // when window width is >= 320px
-  //   320: {
-  //     slidesPerView: 1,
-  //     slidesPerGroup: 1,
-  //     spaceBetween: 15,
-  //   },
-  //   // when window width is >= 576px
-  //   576: {
-  //     slidesPerView: 2,
-  //     slidesPerGroup: 2,
-  //     spaceBetween: 15,
-  //   },
-  //   // when window width is >= 768px
-  //   768: {
-  //     slidesPerView: 2,
-  //     slidesPerGroup: 2,
-  //     spaceBetween: 34,
-  //   },
-  //   // when window width is >= 992px
-  //   1024: {
-  //     slidesPerView: 2,
-  //     slidesPerGroup: 2,
-  //     spaceBetween: 50,
-  //   },
-  //   // when window width is >= 992px
-  //   1201: {
-  //     slidesPerView: 3,
-  //     slidesPerGroup: 3,
-  //     spaceBetween: 50,
-  //   },
-  // },
-
-  a11y: {
-    enabled: true,
-
-
-    prevSlideMessage: 'Предыдущий слайд',
-    nextSlideMessage: 'Следующий слайд',
-    firstSlideMessage: 'Это первый слайд',
-    lastSlideMessage: 'Это последний слайд',
-    slideLabelMessage: 'Слайд {{index}} из {{slidesLength}}',
+    if(currentCategory == 'all') {
+      if (!filterSlider) {
+        filterSlider.update();
+        releaseSlider.destroy();
+      }
+      filterSlider.setAttribute('data-slider', 'false');
+      video.classList.add('grid');
+      console.log(100200);
   }
+    });
 });
+
+// releaseSlider = new Swiper('.filter-slider', {
+//   slideClass: 'video__item',
+//   wrapperClass: 'video',
+//     //кол-во слайдов одвовременно видно в контейнере
+//     slidesPerView: 1.5,
+//     spaceBetween: 50,
+//   // navigation: {
+//   //   nextEl: '.filter__btn-next',
+//   //   prevEl: '.filter__btn-prev',
+//   // },
+// });
+
 
 // function filter() {
 //   filterNav.addEventListener('click', function(e) {

@@ -61,8 +61,7 @@ const fiterBtns = document.querySelectorAll('.filter__btn');
 const filterInfo = document.querySelectorAll('.video__item');
 const video = document.querySelector('.video');
 const filterSlider = document.querySelector('.filter-slider');
-let releaseSlider;
-// slider-wrapper
+
 fiterBtns.forEach(function(btn) {
   btn.addEventListener('click', (event) => {
     let currentCategory  = event.currentTarget.getAttribute('data-filter');
@@ -74,63 +73,73 @@ fiterBtns.forEach(function(btn) {
     });
 
     filterInfo.forEach((info) => {
-      info.setAttribute('data-hidden', 'false');
+      info.classList.remove('visually-hidden');
+      info.classList.remove('visible');
 
       if(currentCategory !== 'all' && info.getAttribute('data-target') !== currentCategory) {
-        info.setAttribute('data-hidden', 'true');
-        video.classList.remove('grid');
-        filterSlider.setAttribute('data-slider', 'true');
-
-        // иницилизация slider-filter
-        releaseSlider = new Swiper('.filter-slider', {
-          slideClass: 'video__item',
-          wrapperClass: 'video',
-            //кол-во слайдов одвовременно видно в контейнере
-            slidesPerView: 1.5,
-            spaceBetween: 50,
-          // navigation: {
-          //   nextEl: '.filter__btn-next',
-          //   prevEl: '.filter__btn-prev',
-          // },
-        });
-        releaseSlider.update();
+        info.classList.add('visually-hidden');
       }
+      if(info.getAttribute('data-target') === currentCategory) {
+        info.classList.add('visible');
+        video.style.display = 'flex';
+      }
+
     });
 
     if(currentCategory == 'all') {
-      if (!filterSlider) {
-        filterSlider.update();
-        releaseSlider.destroy();
-      }
-      filterSlider.setAttribute('data-slider', 'false');
-      video.classList.add('grid');
-      console.log(100200);
+      video.style.display = '';
   }
     });
 });
 
-// releaseSlider = new Swiper('.filter-slider', {
-//   slideClass: 'video__item',
-//   wrapperClass: 'video',
-//     //кол-во слайдов одвовременно видно в контейнере
-//     slidesPerView: 1.5,
-//     spaceBetween: 50,
-//   // navigation: {
-//   //   nextEl: '.filter__btn-next',
-//   //   prevEl: '.filter__btn-prev',
-//   // },
+// slider-wrapper swiper
+// fiterBtns.forEach(function(btn) {
+//   btn.addEventListener('click', (event) => {
+//     let currentCategory  = event.currentTarget.getAttribute('data-filter');
+//     console.log(currentCategory);
+
+//     fiterBtns.forEach((btn) => {
+//       btn.removeAttribute('data-active');
+//       event.currentTarget.setAttribute('data-active', 'true');
+//     });
+
+//     filterInfo.forEach((info) => {
+//       info.setAttribute('data-hidden', 'false');
+
+//       if(currentCategory !== 'all' && info.getAttribute('data-target') !== currentCategory) {
+//         info.setAttribute('data-hidden', 'true');
+//         video.classList.remove('grid');
+//         filterSlider.setAttribute('data-slider', 'true');
+
+//         // иницилизация slider-filter
+//         releaseSlider = new Swiper('.filter-slider', {
+//           slideClass: 'video__item',
+//           wrapperClass: 'video',
+//             //кол-во слайдов одвовременно видно в контейнере
+//             slidesPerView: 1.5,
+//             spaceBetween: 50,
+//           // navigation: {
+//           //   nextEl: '.filter__btn-next',
+//           //   prevEl: '.filter__btn-prev',
+//           // },
+//         });
+//         releaseSlider.update();
+//       }
+//     });
+
+//     if(currentCategory == 'all') {
+//       if (!filterSlider) {
+//         releaseSlider.destroy();
+
+//       }
+
+//       filterSlider.setAttribute('data-slider', 'false');
+//       video.classList.add('grid');
+//       console.log(100200);
+//   }
+//     });
 // });
 
-
-// function filter() {
-//   filterNav.addEventListener('click', function(e) {
-//     let targetId = e.target.datadet.path;
-//     // let path = e.currentTarget.getAttribute('data-path');
-//     // document.querySelector(`[data-target="${path}"]`).setAttribute('data-active');
-//     console.log(targetId);
-//   });
-// };
-// filter();
 // плавный скролл по якорям
 const smoothLinks = document.querySelectorAll('a[href^="#"]');
 for (let smoothLink of smoothLinks) {

@@ -36,6 +36,7 @@
   /* --hover-color: #c0130e; */
   /* --hover-color: #414141; */
   --hover-color: #fff;
+  --gap: 30px;
   --ofset-main: 50px;
   --ofset-section: 100px;
 }
@@ -82,6 +83,16 @@ body {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+.visually-hidden {
+  position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
 }
 
 .container {
@@ -469,7 +480,7 @@ body {
   background-color: var(--accent-color);
 }
 
-.filter-slider[data-slider="true"] {
+/* .filter-slider[data-slider="true"] {
   position: relative;
   overflow: hidden;
 }
@@ -483,11 +494,8 @@ body {
 }
 .filter-slider[data-slider="true"] .video__content {
   min-height: 380px;
-  /* min-height: 280px; */
   overflow: hidden;
 }
-
-
 .video.grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -500,6 +508,7 @@ body {
   overflow: hidden;
   opacity: 1;
   visibility: visible;
+  margin: 0;
   background-color: var(--dark-bg-color);
   transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
 }
@@ -527,8 +536,57 @@ body {
 .grid .video__item:nth-child(n+5) {
   grid-row: 1 span;
   grid-column: 6 span;
+} */
+
+.video {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 280px;
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-padding: var(--gap);
+  scroll-snap-type: x mandatory;
+  min-height: 280px;
 }
 
+.video__item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: var(--dark-bg-color);
+  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+.video__item:nth-child(1) {
+  grid-row: 2 span;
+  grid-column: 3 span;
+}
+.video__item:nth-child(2) {
+  grid-row: 1 span;
+  grid-column: 9 span;
+}
+.video__item:nth-child(3) {
+  grid-row: 1 span;
+  grid-column: 6 span;
+}
+.video__item:nth-child(4) {
+  grid-row: 1 span;
+  grid-column: 3 span;
+}
+.video__item:nth-child(n+5) {
+  grid-row: 1 span;
+  grid-column: 6 span;
+}
+.video
+.visible.video__item{
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  scroll-snap-align: center;
+  width: 70%;
+  /* min-height: 380px; */
+  grid-row: 1 span;
+  grid-column: 6 span;
+}
 
 .video__item picture {
   font-size: 0;

@@ -2,9 +2,6 @@
   .header__logo {
     margin-right: var(--ofset-main);
   }
-  /* .menu__list {
-    gap: 24px;
-  } */
   /* for Safari in Mac */
   .menu__item:not(:last-child) {
     margin-right: 24px;
@@ -32,10 +29,6 @@
     padding: 12px 24px;
     font-size: 20px;
   }
-  /* .video {
-    grid-auto-rows: 23.3vw;
-    gap: 2.5vw;
-  } */
 }
 
 @media(max-width: 1024px) {
@@ -58,12 +51,19 @@
 }
 
 @media(max-width: 992px) {
+  /* .section-title {
+    line-height: 48px;
+  } */
   .header__container {
     padding-top: 41px;
   }
   .burger {
-    position: relative;
+    /* position: relative; */
     display: block;
+    position: fixed;
+    top: 41px;
+    right: 15px;
+    background-color: var(--white-color);
   }
   .burger::before {
     content: ' ';
@@ -72,7 +72,7 @@
     right: 50px;
     /* width: calc(380px - (24px + 55px)); */
     width: 300px;
-    height: 85px;
+    /* height: 85px; */
     opacity: 0;
     visibility: hidden;
     background-color: var(--white-color);
@@ -85,7 +85,7 @@
     visibility: visible;
   }
   .menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     visibility: hidden;
@@ -98,7 +98,7 @@
     height: 100vh;
     /* max-height: 100%; */
     /* height: 100vh; */
-    max-height: 725px;
+    /* max-height: 725px; */
     background-color: var(--white-color);
     -webkit-box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
             box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
@@ -110,6 +110,9 @@
     -o-transition: visibility .8s ease-in-out, transform .8s ease-in-out;
     transition: visibility .8s ease-in-out, transform .8s ease-in-out;
     transition: visibility .8s ease-in-out, transform .8s ease-in-out, -webkit-transform .8s ease-in-out;
+  }
+  .menu::before {
+    content: '';
   }
   .menu__list {
     -webkit-box-orient: vertical;
@@ -168,6 +171,7 @@
   .video__item:nth-child(4) {
     grid-column: 4 span;
   }
+
   .card__title {
     font-size: 40px;
   }
@@ -179,6 +183,9 @@
         -ms-transform: translateX(64px);
             transform: translateX(64px);
   }
+  /* .contacts {
+    padding-bottom: var(--ofset-main);
+  } */
 }
 
 @media(max-width: 768px) {
@@ -192,6 +199,9 @@
   }
   .header__social {
     display: none;
+  }
+  .header__btn {
+    margin-right: 50px;
   }
   .menu {
     display: -webkit-box;
@@ -207,7 +217,7 @@
     gap: var(--ofset-section);
   }
   .menu__list {
-    margin-bottom: auto;
+    margin-bottom: var(--ofset-section);
   }
   .menu__social {
     display: -webkit-box;
@@ -222,6 +232,7 @@
   .menu__social .social__item:not(:last-child) {
     margin-right: 24px;
   }
+
   .menu__social svg {
     width: 40px;
     height: 40px;
@@ -255,11 +266,9 @@
   }
 
   .filter__nav {
-    /* gap: 24px; */
     gap: 8px;
   }
   .filter__item{
-    /* min-width: auto; */
     min-width: 120px;
   }
   .filter__btn {
@@ -267,9 +276,15 @@
     font-size: 16px;
   }
   .video {
-    grid-auto-rows: 380px;
+    display: flex;
   }
-  .video__item:nth-child(n+1) {
+  .video__item {
+    display: block;
+    min-width: 80%;
+  }
+
+  .visible.video__item{
+    width: 80%;
     grid-row: 1 span;
     grid-column: 12 span;
   }
@@ -322,6 +337,12 @@
     padding: 16.3px 50px;
     border-radius: 30px;
   }
+  .contacts__social-list .social__item:not(:last-child) {
+    margin-right: 24px;
+  }
+  .footer__content {
+    padding-top: 0px;
+  }
 }
 
 @media(max-width: 577px) {
@@ -350,6 +371,9 @@
     min-width: 100%;
     max-height: 100%;
   }
+  .menu__list {
+    margin-bottom: 0;
+  }
   .promo__title {
     padding: 0px;
     font-size: 28px;
@@ -371,21 +395,20 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-
   .video {
-    grid-auto-rows: 280px;
+    gap: 15px;
   }
-  .video__item:nth-child(n+1) {
-    grid-row: 1 span;
-    grid-column: 12 span;
+  .video__item {
+    display: block;
+    min-width: 85%;
   }
 
   .error {
     font-size: 14px;
   }
   .contacts__mail {
-    margin-bottom: 40px;
     font-size: 20px;
+    letter-spacing: normal;
   }
   .footer__content {
     -webkit-box-pack: center;

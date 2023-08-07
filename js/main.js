@@ -5,23 +5,23 @@ let menu = document.querySelector('.menu');
 let menuLink = document.querySelectorAll('.menu-link');
 const body = document.body;
 
-let disableScroll = function() {
-  let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
-  let paddingTop = window.scrollY;
-  body.dataset.position = paddingTop;
-  body.style.paddingRight = paddingOffset;
-  body.style.top = -paddingTop + 'px';
-  body.classList.add('disable-scroll');
-}
+// let disableScroll = function() {
+//   let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
+//   let paddingTop = window.scrollY;
+//   body.dataset.position = paddingTop;
+//   body.style.paddingRight = paddingOffset;
+//   body.style.top = -paddingTop + 'px';
+//   body.classList.add('disable-scroll');
+// }
 
-let enableScroll = function() {
-let paddingTop = parseInt(body.dataset.position, 10);
-  body.style.paddingRight = '0px';
-  body.style.top = 'auto';
-  body.classList.remove('disable-scroll');
-  window.scroll({top: paddingTop, left: 0});
-  body.removeAttribute('data-position');
-}
+// let enableScroll = function() {
+// let paddingTop = parseInt(body.dataset.position, 10);
+//   body.style.paddingRight = '0px';
+//   body.style.top = 'auto';
+//   body.classList.remove('disable-scroll');
+//   window.scroll({top: paddingTop, left: 0});
+//   body.removeAttribute('data-position');
+// }
 
 burger.addEventListener('click', function() {
   burger.classList.toggle('is-open');

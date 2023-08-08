@@ -5,24 +5,6 @@ let menu = document.querySelector('.menu');
 let menuLink = document.querySelectorAll('.menu-link');
 const body = document.body;
 
-// let disableScroll = function() {
-//   let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
-//   let paddingTop = window.scrollY;
-//   body.dataset.position = paddingTop;
-//   body.style.paddingRight = paddingOffset;
-//   body.style.top = -paddingTop + 'px';
-//   body.classList.add('disable-scroll');
-// }
-
-// let enableScroll = function() {
-// let paddingTop = parseInt(body.dataset.position, 10);
-//   body.style.paddingRight = '0px';
-//   body.style.top = 'auto';
-//   body.classList.remove('disable-scroll');
-//   window.scroll({top: paddingTop, left: 0});
-//   body.removeAttribute('data-position');
-// }
-
 burger.addEventListener('click', function() {
   burger.classList.toggle('is-open');
   menu.classList.toggle('menu-open');
@@ -55,22 +37,50 @@ document.addEventListener('click', function(el) {
   }
 });
 
-// fiter sextion release
-const filterNav = document.querySelector('.filter__nav')
 const fiterBtns = document.querySelectorAll('.filter__btn');
 const filterInfo = document.querySelectorAll('.video__item');
 const video = document.querySelector('.video');
 const filterSlider = document.querySelector('.filter-slider');
+ // иницилизация slider-filter
+const releaseSlider = new Swiper('.filter-slider', {
+  slideClass: 'video__item',
+  wrapperClass: 'video',
+  slidesPerView: 1.5,
+  spaceBetween: 30,
+
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      // slidesPerView: 1.7,
+      spaceBetween: 15,
+    },
+    // when window width is >= 768px
+    768: {
+      // slidesPerView: 1.7,
+      spaceBetween: 30,
+    },
+  },
+});
 
 fiterBtns.forEach(function(btn) {
   btn.addEventListener('click', (event) => {
     let currentCategory  = event.currentTarget.getAttribute('data-filter');
     console.log(currentCategory);
+    releaseSlider.slideTo(0);
+
 
     fiterBtns.forEach((btn) => {
       btn.removeAttribute('data-active');
       event.currentTarget.setAttribute('data-active', 'true');
     });
+
+    if(currentCategory == 'all') {
+      filterSlider.querySelector('.video').classList.add('visually-hidden');
+      video.classList.remove('visually-hidden');
+    } else {
+      video.classList.add('visually-hidden');
+      filterSlider.querySelector('.video').classList.remove('visually-hidden');
+    }
 
     filterInfo.forEach((info) => {
       info.classList.remove('visually-hidden');
@@ -81,64 +91,10 @@ fiterBtns.forEach(function(btn) {
       }
       if(info.getAttribute('data-target') === currentCategory) {
         info.classList.add('visible');
-        video.style.display = 'flex';
       }
-
     });
-
-    if(currentCategory == 'all') {
-      video.style.display = '';
-  }
-    });
+  });
 });
-
-// slider-wrapper swiper
-// fiterBtns.forEach(function(btn) {
-//   btn.addEventListener('click', (event) => {
-//     let currentCategory  = event.currentTarget.getAttribute('data-filter');
-//     console.log(currentCategory);
-
-//     fiterBtns.forEach((btn) => {
-//       btn.removeAttribute('data-active');
-//       event.currentTarget.setAttribute('data-active', 'true');
-//     });
-
-//     filterInfo.forEach((info) => {
-//       info.setAttribute('data-hidden', 'false');
-
-//       if(currentCategory !== 'all' && info.getAttribute('data-target') !== currentCategory) {
-//         info.setAttribute('data-hidden', 'true');
-//         video.classList.remove('grid');
-//         filterSlider.setAttribute('data-slider', 'true');
-
-//         // иницилизация slider-filter
-//         releaseSlider = new Swiper('.filter-slider', {
-//           slideClass: 'video__item',
-//           wrapperClass: 'video',
-//             //кол-во слайдов одвовременно видно в контейнере
-//             slidesPerView: 1.5,
-//             spaceBetween: 50,
-//           // navigation: {
-//           //   nextEl: '.filter__btn-next',
-//           //   prevEl: '.filter__btn-prev',
-//           // },
-//         });
-//         releaseSlider.update();
-//       }
-//     });
-
-//     if(currentCategory == 'all') {
-//       if (!filterSlider) {
-//         releaseSlider.destroy();
-
-//       }
-
-//       filterSlider.setAttribute('data-slider', 'false');
-//       video.classList.add('grid');
-//       console.log(100200);
-//   }
-//     });
-// });
 
 // плавный скролл по якорям
 const smoothLinks = document.querySelectorAll('a[href^="#"]');

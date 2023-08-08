@@ -405,7 +405,7 @@ body {
   width: 100%;
   height: 100%;
 }
-.filter-slider .video {
+.filter-slider .swiper-wrapper {
   display: flex;
   align-items: center;
   gap: 0;

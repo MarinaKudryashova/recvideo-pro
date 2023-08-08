@@ -5,6 +5,24 @@ let menu = document.querySelector('.menu');
 let menuLink = document.querySelectorAll('.menu-link');
 const body = document.body;
 
+let disableScroll = function() {
+  let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
+  let paddingTop = window.scrollY;
+  body.dataset.position = paddingTop;
+  body.style.paddingRight = paddingOffset;
+  body.style.top = -paddingTop + 'px';
+  body.classList.add('disable-scroll');
+}
+
+let enableScroll = function() {
+let paddingTop = parseInt(body.dataset.position, 10);
+  body.style.paddingRight = '0px';
+  body.style.top = 'auto';
+  body.classList.remove('disable-scroll');
+  window.scroll({top: paddingTop, left: 0});
+  body.removeAttribute('data-position');
+}
+
 burger.addEventListener('click', function() {
   burger.classList.toggle('is-open');
   menu.classList.toggle('menu-open');
@@ -37,34 +55,27 @@ document.addEventListener('click', function(el) {
   }
 });
 
+
+
+
+//!______________________
+// fiter sextion release
+const filterNav = document.querySelector('.filter__nav')
 const fiterBtns = document.querySelectorAll('.filter__btn');
 const filterInfo = document.querySelectorAll('.video__item');
-const filterList = document.querySelector('.filter__list');
-const filterSlider = document.querySelector('.filter-slider');
- // иницилизация slider-filter
-const releaseSlider = new Swiper('.filter-slider', {
-  slideClass: 'video__item',
-  // wrapperClass: 'filter-wrapper',
-  wrapperClass: 'video',
-  slidesPerView: 1.5,
-  spaceBetween: 30,
+const video = document.querySelector('.video');
+const filterSlider = document.querySelector('.filter__list');
+const mySwiper = document.querySelector('.mySwiper');
 
-  breakpoints: {
-    // when window width is >= 320px
-    320: {
-      // slidesPerView: 1.7,
-      spaceBetween: 15,
-    },
-    // when window width is >= 768px
-    768: {
-      // slidesPerView: 1.7,
-      spaceBetween: 30,
-    },
-  },
-});
-// filterSlider.style.display = 'none';
-filterSlider.classList.add('visually-hidden');
+let releaseSlider = new Swiper('.mySwiper', {
+    slideClass: 'video__item',
+    wrapperClass: 'video',
+    slidesPerView: 1.5,
+    spaceBetween: 30,
 
+  });
+mySwiper.style.display = 'none';
+// slider-wrapper
 fiterBtns.forEach(function(btn) {
   btn.addEventListener('click', (event) => {
 
@@ -74,35 +85,35 @@ fiterBtns.forEach(function(btn) {
 
     let currentCategory  = event.currentTarget.getAttribute('data-filter');
     event.currentTarget.setAttribute('data-active', 'true');
-    console.log(currentCategory);
     releaseSlider.slideTo(0);
 
     if(currentCategory == 'all') {
-      // filterSlider.style.display = 'none';
-      // filterList.style.display = 'grid';
-      filterSlider.classList.add('visually-hidden');
-      filterList.classList.remove('visually-hidden');
+      mySwiper.style.display = 'none';
+      filterSlider.style.display = 'grid';
     } else {
-      // filterSlider.style.display = 'block';
-      // filterList.style.display = 'none';
-      filterSlider.classList.remove('visually-hidden');
-      filterList.classList.add('visually-hidden');
+      mySwiper.style.display = 'block';
+      filterSlider.style.display = 'none';
     }
 
     filterInfo.forEach((info) => {
       if(currentCategory !== 'all' && info.getAttribute('data-target') !== currentCategory) {
-        // info.setAttribute('data-hidden', 'true');
-        // info.classList.add('visually-hidden');
-        info.style.display = 'none';
+        info.setAttribute('data-hidden', 'true');
       } else {
-        // info.classList.remove('visually-hidden');
-        info.style.display = 'block';
-        //  info.setAttribute('data-hidden', 'false');
+         info.setAttribute('data-hidden', 'false');
       }
     });
+
     releaseSlider.update();
   });
 });
+
+//______________________________!
+
+
+
+
+
+
 
 // плавный скролл по якорям
 const smoothLinks = document.querySelectorAll('a[href^="#"]');

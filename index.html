@@ -85,7 +85,7 @@
           </div>
         </div>
       </section>
-      <section id="adout" class="adout">
+      <section id="adout" class="about">
         <div class="container">
           <h2 class="about__title section-title">
             <span class="company-name"><span>REC</span>VIDEO.PRO</span>
@@ -109,183 +109,190 @@
             <span class="section-title__text">снимает</span>
           </h2>
           <div class="release__filter filter">
-            <ul class="filter__nav list-reset">
-              <li class="filter__item">
-                <button class="filter__btn btn-reset" data-active="true" data-filter="all" aria-label="" aria-expanded="false">видео</button>
+            <ul class="filter__nav filter-nav list-reset">
+              <li class="filter-nav__item">
+                <button class="filter-nav__btn btn-reset" data-active="true" data-filter="all" aria-label="" aria-expanded="false">видео</button>
               </li>
-              <li class="filter__item">
-                <button class="filter__btn btn-reset" data-filter="clips" aria-label="" aria-expanded="false">клипы</button>
+              <li class="filter-nav__item">
+                <button class="filter-nav__btn btn-reset" data-filter="clips" aria-label="" aria-expanded="false">клипы</button>
               </li>
-              <li class="filter__item">
-                <button class="filter__btn btn-reset" data-filter="advertising" aria-label="" aria-expanded="false">реклама</button>
+              <li class="filter-nav__item">
+                <button class="filter-nav__btn btn-reset" data-filter="advertising" aria-label="" aria-expanded="false">реклама</button>
               </li>
-              <li class="filter__item">
-                <button class="filter__btn btn-reset" data-filter="fashion" aria-label="" aria-expanded="false">FASHION</button>
+              <li class="filter-nav__item">
+                <button class="filter-nav__btn btn-reset" data-filter="fashion" aria-label="" aria-expanded="false">FASHION</button>
               </li>
             </ul>
-            <ul class="filter__list video list-reset">
-              <li class="video__item" data-target="clips">
-                <a href="#" class="video__content link-reset" target="_blank">
+            <ul class="filter__list filter-info list-reset">
+              <li class="filter-info__item video" data-target="clips">
+                <a class="video__link link-reset" data-src="https://youtu.be/McSTvIqDuso" target="_blank">
                   <picture>
                     <source srcset="img/poster-video/img-video-1.webp" type="image/webp">
                     <img class="video__img" src="img/poster-video/img-video-1.jpg" alt="постер к видео 1">
                   </picture>
-                  <button class="video__btn btn-reset" aria-label="Запустить видео">
-                    <svg class="video__icon" width="120" height="120">
-                      <use xlink:href="img/sprite.svg#play"></use>
-                    </svg>
-                  </button>
+                </a>
+                <a href="video.html" class="video__btn btn-reset" aria-label="Запустить видео" target="_blank">
+                  <svg class="video__icon" width="120" height="120">
+                    <use xlink:href="img/sprite.svg#play"></use>
+                  </svg>
                 </a>
               </li>
-              <li class="video__item" data-target="advertising">
-                <a href="#" class="video__content" target="_blank">
+              <li class="filter-info__item video" data-target="advertising">
+                <a  class="video__link" data-src="https://youtu.be/u5uNhVs1PRM">
                   <picture>
                     <source srcset="img/poster-video/img-video-2.webp" type="image/webp">
                     <img class="video__img" src="img/poster-video/img-video-2.jpg" alt="постер к видео 2">
                   </picture>
-                  <button class="video__btn btn-reset" aria-label="Запустить видео">
-                    <svg class="video__icon" width="120" height="120">
-                      <use xlink:href="img/sprite.svg#play"></use>
-                    </svg>
-                  </button>
+                </a>
+                <a href="https://youtu.be/u5uNhVs1PRM"  target="_blank" class="video__btn btn-reset" aria-label="Запустить видео">
+                  <svg class="video__icon" width="120" height="120">
+                    <use xlink:href="img/sprite.svg#play"></use>
+                  </svg>
                 </a>
               </li>
-              <li class="video__item" data-target="fashion">
-                <a href="#" class="video__content" target="_blank">
+              <li class="filter-info__item video" data-target="fashion">
+                <a class="video__link" data-src="https://youtu.be/McSTvIqDuso">
                   <picture>
                     <source srcset="img/poster-video/img-video-3.webp" type="image/webp">
                     <img class="video__img" src="img/poster-video/img-video-3.jpg" alt="постер к видео 3">
                   </picture>
-                  <button class="video__btn btn-reset" aria-label="Запустить видео">
-                    <svg class="video__icon" width="120" height="120">
-                      <use xlink:href="img/sprite.svg#play"></use>
-                    </svg>
-                  </button>
                 </a>
+                <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                  <svg class="video__icon" width="120" height="120">
+                    <use xlink:href="img/sprite.svg#play"></use>
+                  </svg>
+                </button>
               </li>
-              <li class="video__item" data-target="fashion">
-                <a href="#" class="video__content" target="_blank">
+              <li class="filter-info__item video" data-target="fashion">
+                <a href="#" class="video__link" data-src="https://youtu.be/nIJDtPQLI-k">
                   <picture>
                     <source srcset="img/poster-video/img-video-4.webp" type="image/webp">
                     <img class="video__img" src="img/poster-video/img-video-4.jpg" alt="постер к видео 4">
                   </picture>
-                  <button class="video__btn btn-reset" aria-label="Запустить видео">
-                    <svg class="video__icon" width="120" height="120">
-                      <use xlink:href="img/sprite.svg#play"></use>
-                    </svg>
-                  </button>
                 </a>
+                <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                  <svg class="video__icon" width="120" height="120">
+                    <use xlink:href="img/sprite.svg#play"></use>
+                  </svg>
+                </button>
               </li>
-              <li class="video__item" data-target="advertising">
-                <a href="#" class="video__content" target="_blank">
+              <li class="filter-info__item video" data-target="advertising">
+                <a href="#" class="video__link" data-src="">
                   <picture>
                     <source srcset="img/poster-video/img-video-5.webp" type="image/webp">
                     <img class="video__img" src="img/poster-video/img-video-5.jpg" alt="постер к видео 5">
                   </picture>
-                  <button class="video__btn btn-reset" aria-label="Запустить видео">
-                    <svg class="video__icon" width="120" height="120">
-                      <use xlink:href="img/sprite.svg#play"></use>
-                    </svg>
-                  </button>
                 </a>
+                <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                  <svg class="video__icon" width="120" height="120">
+                    <use xlink:href="img/sprite.svg#play"></use>
+                  </svg>
+                </button>
               </li>
-              <li class="video__item" data-target="advertising">
-                <a href="#" class="video__content" target="_blank">
+              <li class="filter-info__item video" data-target="advertising">
+                <a href="#" class="video__link" data-src="">
                   <picture>
                     <source srcset="img/poster-video/img-video-6.webp" type="image/webp">
                     <img class="video__img" src="img/poster-video/img-video-6.jpg" alt="постер к видео 6">
                   </picture>
-                  <button class="video__btn btn-reset" aria-label="Запустить видео">
-                    <svg class="video__icon" width="120" height="120">
-                      <use xlink:href="img/sprite.svg#play"></use>
-                    </svg>
-                  </button>
                 </a>
+                <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                  <svg class="video__icon" width="120" height="120">
+                    <use xlink:href="img/sprite.svg#play"></use>
+                  </svg>
+                </button>
               </li>
             </ul>
             <div class="filter-slider">
-              <ul class="filter-slider__list video list-reset">
-                <li class="video__item" data-target="clips">
-                  <a href="https://youtu.be/nIJDtPQLI-k" class="video__content link-reset" target="_blank">
+              <ul class="filter-slider__list filter-info list-reset">
+                <li class="filter-info__item video" data-target="clips">
+                  <a  class="video__link link-reset" data-src="https://youtu.be/McSTvIqDuso" target="_blank">
                     <picture>
                       <source srcset="img/poster-video/img-video-1.webp" type="image/webp">
                       <img class="video__img" src="img/poster-video/img-video-1.jpg" alt="постер к видео 1">
                     </picture>
-                    <button class="video__btn btn-reset" aria-label="Запустить видео">
-                      <svg class="video__icon" width="120" height="120">
-                        <use xlink:href="img/sprite.svg#play"></use>
-                      </svg>
-                    </button>
+                  </a>
+                  <a href="video.html" class="video__btn btn-reset" aria-label="Запустить видео" target="_blank">
+                    <svg class="video__icon" width="120" height="120">
+                      <use xlink:href="img/sprite.svg#play"></use>
+                    </svg>
                   </a>
                 </li>
-                <li class="video__item" data-target="advertising">
-                  <a href="#" class="video__content" target="_blank">
+                <li class="filter-info__item video" data-target="advertising">
+                  <a class="video__link" >
                     <picture>
                       <source srcset="img/poster-video/img-video-2.webp" type="image/webp">
                       <img class="video__img" src="img/poster-video/img-video-2.jpg" alt="постер к видео 2">
                     </picture>
-                    <button class="video__btn btn-reset" aria-label="Запустить видео">
-                      <svg class="video__icon" width="120" height="120">
-                        <use xlink:href="img/sprite.svg#play"></use>
-                      </svg>
-                    </button>
+                  </a>
+                  <a href="https://youtu.be/u5uNhVs1PRM"  class="video__btn btn-reset" aria-label="Запустить видео" target="_blank">
+                    <svg class="video__icon" width="120" height="120">
+                      <use xlink:href="img/sprite.svg#play"></use>
+                    </svg>
                   </a>
                 </li>
-                <li class="video__item" data-target="fashion">
-                  <a href="#" class="video__content" target="_blank">
+                <li class="filter-info__item video" data-target="fashion">
+                  <a href="#" class="video__link"  data-src="https://youtu.be/McSTvIqDuso">
                     <picture>
                       <source srcset="img/poster-video/img-video-3.webp" type="image/webp">
                       <img class="video__img" src="img/poster-video/img-video-3.jpg" alt="постер к видео 3">
                     </picture>
-                    <button class="video__btn btn-reset" aria-label="Запустить видео">
-                      <svg class="video__icon" width="120" height="120">
-                        <use xlink:href="img/sprite.svg#play"></use>
-                      </svg>
-                    </button>
                   </a>
+                  <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                    <svg class="video__icon" width="120" height="120">
+                      <use xlink:href="img/sprite.svg#play"></use>
+                    </svg>
+                  </button>
                 </li>
-                <li class="video__item" data-target="fashion">
-                  <a href="#" class="video__content" target="_blank">
+                <li class="filter-info__item video" data-target="fashion">
+                  <a href="#" class="video__link" data-src="https://youtu.be/nIJDtPQLI-k">
                     <picture>
                       <source srcset="img/poster-video/img-video-4.webp" type="image/webp">
                       <img class="video__img" src="img/poster-video/img-video-4.jpg" alt="постер к видео 4">
                     </picture>
-                    <button class="video__btn btn-reset" aria-label="Запустить видео">
-                      <svg class="video__icon" width="120" height="120">
-                        <use xlink:href="img/sprite.svg#play"></use>
-                      </svg>
-                    </button>
                   </a>
+                  <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                    <svg class="video__icon" width="120" height="120">
+                      <use xlink:href="img/sprite.svg#play"></use>
+                    </svg>
+                  </button>
                 </li>
-                <li class="video__item" data-target="advertising">
-                  <a href="#" class="video__content" target="_blank">
+                <li class="filter-info__item video" data-target="advertising">
+                  <a href="#" class="video__link" data-src="">
                     <picture>
                       <source srcset="img/poster-video/img-video-5.webp" type="image/webp">
                       <img class="video__img" src="img/poster-video/img-video-5.jpg" alt="постер к видео 5">
                     </picture>
-                    <button class="video__btn btn-reset" aria-label="Запустить видео">
-                      <svg class="video__icon" width="120" height="120">
-                        <use xlink:href="img/sprite.svg#play"></use>
-                      </svg>
-                    </button>
                   </a>
+                  <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                    <svg class="video__icon" width="120" height="120">
+                      <use xlink:href="img/sprite.svg#play"></use>
+                    </svg>
+                  </button>
                 </li>
-                <li class="video__item" data-target="advertising">
-                  <a href="#" class="video__content" target="_blank">
+                <li class="filter-info__item video" data-target="advertising">
+                  <a href="#" class="video__link" data-src="">
                     <picture>
                       <source srcset="img/poster-video/img-video-6.webp" type="image/webp">
                       <img class="video__img" src="img/poster-video/img-video-6.jpg" alt="постер к видео 6">
                     </picture>
-                    <button class="video__btn btn-reset" aria-label="Запустить видео">
-                      <svg class="video__icon" width="120" height="120">
-                        <use xlink:href="img/sprite.svg#play"></use>
-                      </svg>
-                    </button>
                   </a>
+                  <button class="video__btn btn-modal-open btn-reset" aria-label="Запустить видео">
+                    <svg class="video__icon" width="120" height="120">
+                      <use xlink:href="img/sprite.svg#play"></use>
+                    </svg>
+                  </button>
                 </li>
               </ul>
             </div>
-
+          </div>
+          <div class="release___modals overlay">
+            <div class="release___modal modal">
+              <button class="modal__btn-close btn-reset" type="button" aria-label="Закрыть модальное окно">
+                <span class="modal__lines"></span>
+              </button>
+              <div class="modal__video"></div>
+            </div>
           </div>
 
         </div>
@@ -353,7 +360,7 @@
             <span class="contacts__mail-text">Email:</span>
             <a class="contacts__link contacts__text item-text link-reset" href="mailto:zivazivideo@gmail.com">zivazivideo@gmail.com</a>
           </div>
-          <ul class="contacts__social-list list-reset">
+          <ul class="contacts__social-list social list-reset">
             <li class="social__item">
               <a href="#" class="social__link link-reset" target="_blank" aria-label="Связаться с нами в Инстаграм" >
                 <svg class="social__icon" width="50" height="49">

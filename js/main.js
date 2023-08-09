@@ -37,15 +37,15 @@ document.addEventListener('click', function(el) {
   }
 });
 
-const fiterBtns = document.querySelectorAll('.filter__btn');
-const filterInfo = document.querySelectorAll('.video__item');
+const fiterBtns = document.querySelectorAll('.filter-nav__btn');
+const filterInfo = document.querySelectorAll('.filter-info__item');
 const filterList = document.querySelector('.filter__list');
 const filterSlider = document.querySelector('.filter-slider');
  // иницилизация slider-filter
 const releaseSlider = new Swiper('.filter-slider', {
-  slideClass: 'video__item',
+  slideClass: 'filter-info__item',
   // wrapperClass: 'filter-wrapper',
-  wrapperClass: 'video',
+  wrapperClass: 'filter-info',
   slidesPerView: 1.5,
   spaceBetween: 30,
 
@@ -74,7 +74,6 @@ fiterBtns.forEach(function(btn) {
 
     let currentCategory  = event.currentTarget.getAttribute('data-filter');
     event.currentTarget.setAttribute('data-active', 'true');
-    console.log(currentCategory);
     releaseSlider.slideTo(0);
 
     if(currentCategory == 'all') {
@@ -102,6 +101,98 @@ fiterBtns.forEach(function(btn) {
     });
     releaseSlider.update();
   });
+});
+
+// открытие видео в модальном окне
+const btnsModalOpen = document.querySelectorAll('.btn-modal-open');
+const modalOverlay = document.querySelector('.overlay');
+const modal = document.querySelector('.modal');
+const video = document.querySelector('.modal__video');
+const btnsModalClose = document.querySelector('.modal__btn-close');
+
+let disableScroll = function() {
+  let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
+  let paddingTop = window.scrollY;
+  body.dataset.position = paddingTop;
+  body.style.paddingRight = paddingOffset;
+  // body.style.top = -paddingTop + 'px';
+  body.classList.add('disable-scroll');
+}
+
+let enableScroll = function() {
+  let paddingTop = parseInt(body.dataset.position, 10);
+  body.style.paddingRight = '0px';
+  body.style.top = 'auto';
+  body.classList.remove('disable-scroll');
+  window.scroll({top: paddingTop, left: 0});
+  body.removeAttribute('data-position');
+}
+
+// получаем id видео
+function getVideoId(url) {
+  let videoId = url.split(".be/")[1];
+  return videoId;
+}
+
+function createIframe(videoId) {
+  let iframe = document.createElement('iframe');
+
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.setAttribute('allow', 'autoplay');
+  iframe.setAttribute('src', generateURL(videoId));
+  iframe.classList.add('video__img');
+
+  return iframe;
+}
+
+function generateURL(videoId) {
+  let query = '?rel=0&showinfo=0&autoplay=1';
+
+  return 'https://www.youtube.com/embed/' + videoId + query;
+}
+
+
+btnsModalOpen.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
+    let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
+    let videoId = getVideoId(videourl);
+    let iframe = createIframe(videoId);
+    video.appendChild(iframe);
+      modal.classList.add('modal--visible');
+      modalOverlay.classList.add('overlay--visible');
+      disableScroll();
+  });
+});
+
+let modalClose = function() {
+  modal.classList.remove('modal--visible');
+  modalOverlay.classList.remove('overlay--visible');
+  if(video.querySelector('.video__img')) {
+    video.removeChild(video.querySelector('.video__img'));
+  }
+  btnsModalOpen.forEach((btn) => {
+    btn.removeAttribute('style');
+  });
+  enableScroll();
+};
+
+// закрытие закрытие окна по close
+btnsModalClose.addEventListener('click', function(e) {
+  modalClose();
+});
+
+// закрытие закрытие окна по click
+modalOverlay.addEventListener('click', function(e) {
+  if(e.target == modalOverlay) {
+    modalClose();
+  }
+});
+// закрытие по esc
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    modalClose();
+  }
 });
 
 // плавный скролл по якорям

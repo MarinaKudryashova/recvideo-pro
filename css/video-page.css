@@ -1,0 +1,21 @@
+.video__content {
+  padding-bottom: var(--ofset-main);
+}
+.video {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: calc(100vh - var(--ofset-main) - 152px);
+  background-color: var(--dark-bg-color);
+}
+.video .video__link,
+.video iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.video:focus .video__btn,
+.video:hover .video__btn {
+  opacity: 1;
+  visibility: visible;
+}

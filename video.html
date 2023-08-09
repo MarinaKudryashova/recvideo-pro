@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="lib/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/video-page.css">
     <link rel="stylesheet" href="css/style.css?v=1">
     <link rel="stylesheet" href="css/media.css?v=1">
     <!-- <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon"> -->
@@ -77,10 +78,10 @@
       </div>
     </header>
     <main class="main">
-      <section id="video" class="video">
+      <section class="video__content">
         <div class="container">
-          <div class="video__conteiner" style="padding: 50px 0; ">
-            <a href="#" class="link-reset" style="display: block; min-height: 500px; position: relative;">
+          <div class="video">
+            <a href="#" class="video__link" data-src="https://youtu.be/McSTvIqDuso">
               <picture>
                 <source srcset="img/poster-video/img-video-1.webp" type="image/webp">
                 <img class="video__img" src="img/poster-video/img-video-1.jpg" alt="постер к видео 1">
@@ -92,46 +93,21 @@
               </button>
             </a>
           </div>
+          <!-- <a href="#" class="video__content link-reset" style="display: block; min-height: 500px; position: relative; background-color: var(--dark-bg-color);">
+            <picture>
+              <source srcset="img/poster-video/img" type="image/webp">
+              <img class="video__img" src="img/poster-video/img.jpg" alt="постер к видео 1">
+            </picture>
+            <button class="video__btn btn-reset" aria-label="Запустить видео">
+              <svg class="video__icon" width="120" height="120">
+                <use xlink:href="img/sprite.svg#play"></use>
+              </svg>
+            </button>
+          </a> -->
         </div>
       </section>
     </main>
     <footer class="footer">
-      <section id="contacts" class="contacts">
-        <div class="container">
-          <h2 class="contacts__title section-title">
-            <span class="company-name"><span>REC</span>VIDEO.PRO</span>
-            <span class="separator">-</span>
-            <span class="section-title__text">контакты</span>
-          </h2>
-          <div class="contacts__mail">
-            <span class="contacts__mail-text">Email:</span>
-            <a class="contacts__link contacts__text item-text link-reset" href="mailto:zivazivideo@gmail.com">zivazivideo@gmail.com</a>
-          </div>
-          <ul class="contacts__social-list list-reset">
-            <li class="social__item">
-              <a href="#" class="social__link link-reset" target="_blank" aria-label="Связаться с нами в Инстаграм" >
-                <svg class="social__icon" width="50" height="49">
-                  <use xlink:href="img/sprite.svg#instagram"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="social__item">
-              <a href="https://www.telegram.org" class="social__link link-reset" target="_blank" aria-label="Связаться с нами в Телеграм" >
-                <svg class="social__icon" width="50" height="49">
-                  <use xlink:href="img/sprite.svg#telegram"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="social__item">
-              <a href="https://vk.com" class="social__link link-reset" target="_blank" aria-label="Связаться с нами в Контакте" >
-                <svg class="social__icon" width="50" height="49">
-                  <use xlink:href="img/sprite.svg#vk"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
       <div class="footer__content container">
         <span class="footer__copy">©
           <span class="company-name"><span>REC</span>VIDEO.PRO</span>
@@ -142,6 +118,8 @@
     </footer>
     </div>
     <script src="lib/swiper-bundle.min.js"></script>
+
+    <script src="js/video.js"></script>
     <script src="js/main.js"></script>
   </body>
   </html>

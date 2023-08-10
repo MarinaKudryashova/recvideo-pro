@@ -4,8 +4,7 @@ let burger = document.querySelector('.burger');
 let menu = document.querySelector('.menu');
 let menuLink = document.querySelectorAll('.menu-link');
 const body = document.body;
-
-burger.addEventListener('click', function() {
+let toggleNav = function toggleNav() {
   burger.classList.toggle('is-open');
   menu.classList.toggle('menu-open');
   if (burger.getAttribute('aria-label') === 'Открыть меню') {
@@ -15,7 +14,21 @@ burger.addEventListener('click', function() {
     burger.setAttribute("aria-label", 'Открыть меню');
     enableScroll();
   }
-});
+}
+
+burger.addEventListener('click', toggleNav);
+burger.addEventListener('ontouchstart', toggleNav);
+// function() {
+  // burger.classList.toggle('is-open');
+  // menu.classList.toggle('menu-open');
+  // if (burger.getAttribute('aria-label') === 'Открыть меню') {
+  //   burger.setAttribute("aria-label", 'Закрыть меню');
+  //   disableScroll();
+  // } else {
+  //   burger.setAttribute("aria-label", 'Открыть меню');
+  //   enableScroll();
+  // }
+// });
 
 let menuClose = function() {
   burger.classList.remove('is-open');
@@ -25,12 +38,20 @@ let menuClose = function() {
 };
 
 menuLink.forEach(function(e) {
-  e.addEventListener('click', function() {
-    menuClose();
-  });
+  e.addEventListener('click',menuClose);
+  e.addEventListener('ontouchstart',menuClose);
+  // function() {
+  //   menuClose();
+  // });
 });
 
 document.addEventListener('click', function(el) {
+    let target = el.target;
+    if(!target.closest('.header__burger') && !target.closest('.menu__list') && burger.classList.contains('is-open')) {
+    menuClose();
+  }
+});
+document.addEventListener('ontouchstart', function(el) {
     let target = el.target;
     if(!target.closest('.header__burger') && !target.closest('.menu__list') && burger.classList.contains('is-open')) {
     menuClose();
@@ -115,7 +136,7 @@ let disableScroll = function() {
   let paddingTop = window.scrollY;
   body.dataset.position = paddingTop;
   body.style.paddingRight = paddingOffset;
-  // body.style.top = -paddingTop + 'px';
+  body.style.top = -paddingTop + 'px';
   body.classList.add('disable-scroll');
 }
 

@@ -357,6 +357,9 @@
     padding: 0px;
     font-size: 28px;
   }
+  .about {
+    padding-top: var(--ofset-section);
+  }
   .about__slogan {
     margin-right: 0px;
     margin-bottom: 14px;
@@ -373,9 +376,9 @@
   .filter__nav {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr var(--gap) 1fr;
+    -ms-grid-columns: 1fr 15px 1fr;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap);
+    gap: 15px 20px;
   }
   .error {
     font-size: 14px;

@@ -172,18 +172,29 @@ function generateURL(videoId) {
   return 'https://www.youtube.com/embed/' + videoId + query;
 }
 
-
+let modalOpen = function modalOpen(event) {
+  event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
+  let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
+  let videoId = getVideoId(videourl);
+  let iframe = createIframe(videoId);
+  video.appendChild(iframe);
+    modal.classList.add('modal--visible');
+    modalOverlay.classList.add('overlay--visible');
+    disableScroll();
+}
 btnsModalOpen.forEach((btn) => {
-  btn.addEventListener('click', (event) => {
-    event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
-    let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
-    let videoId = getVideoId(videourl);
-    let iframe = createIframe(videoId);
-    video.appendChild(iframe);
-      modal.classList.add('modal--visible');
-      modalOverlay.classList.add('overlay--visible');
-      disableScroll();
-  });
+  btn.addEventListener('click', modalOpen);
+  btn.addEventListener('ontouchstart', modalOpen);
+  // (event) => {
+    // event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
+    // let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
+    // let videoId = getVideoId(videourl);
+    // let iframe = createIframe(videoId);
+    // video.appendChild(iframe);
+    //   modal.classList.add('modal--visible');
+    //   modalOverlay.classList.add('overlay--visible');
+    //   disableScroll();
+  // });
 });
 
 let modalClose = function() {

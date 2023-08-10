@@ -238,6 +238,14 @@ for (let smoothLink of smoothLinks) {
       block: 'start'
     });
   });
+  smoothLink.addEventListener('ontouchstart', function (e) {
+    e.preventDefault();
+    const id = smoothLink.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
 }
 // Валидация и отправка формы
 const form = document.querySelector('.form__feedback');

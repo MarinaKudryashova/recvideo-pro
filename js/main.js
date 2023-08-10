@@ -18,17 +18,6 @@ let toggleNav = function toggleNav() {
 
 burger.addEventListener('click', toggleNav);
 burger.addEventListener('ontouchstart', toggleNav);
-// function() {
-  // burger.classList.toggle('is-open');
-  // menu.classList.toggle('menu-open');
-  // if (burger.getAttribute('aria-label') === 'Открыть меню') {
-  //   burger.setAttribute("aria-label", 'Закрыть меню');
-  //   disableScroll();
-  // } else {
-  //   burger.setAttribute("aria-label", 'Открыть меню');
-  //   enableScroll();
-  // }
-// });
 
 let menuClose = function() {
   burger.classList.remove('is-open');
@@ -38,11 +27,8 @@ let menuClose = function() {
 };
 
 menuLink.forEach(function(e) {
-  e.addEventListener('click',menuClose);
-  e.addEventListener('ontouchstart',menuClose);
-  // function() {
-  //   menuClose();
-  // });
+  e.addEventListener('click', menuClose);
+  e.addEventListener('ontouchstart', menuClose);
 });
 
 document.addEventListener('click', function(el) {
@@ -51,12 +37,7 @@ document.addEventListener('click', function(el) {
     menuClose();
   }
 });
-document.addEventListener('ontouchstart', function(el) {
-    let target = el.target;
-    if(!target.closest('.header__burger') && !target.closest('.menu__list') && burger.classList.contains('is-open')) {
-    menuClose();
-  }
-});
+
 
 const fiterBtns = document.querySelectorAll('.filter-nav__btn');
 const filterInfo = document.querySelectorAll('.filter-info__item');
@@ -185,16 +166,6 @@ let modalOpen = function modalOpen(event) {
 btnsModalOpen.forEach((btn) => {
   btn.addEventListener('click', modalOpen);
   btn.addEventListener('ontouchstart', modalOpen);
-  // (event) => {
-    // event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
-    // let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
-    // let videoId = getVideoId(videourl);
-    // let iframe = createIframe(videoId);
-    // video.appendChild(iframe);
-    //   modal.classList.add('modal--visible');
-    //   modalOverlay.classList.add('overlay--visible');
-    //   disableScroll();
-  // });
 });
 
 let modalClose = function() {
@@ -230,23 +201,49 @@ document.addEventListener('keydown', function(e) {
 // плавный скролл по якорям
 const smoothLinks = document.querySelectorAll('a[href^="#"]');
 for (let smoothLink of smoothLinks) {
-  smoothLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    const id = smoothLink.getAttribute('href');
-    document.querySelector(id).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  });
-  smoothLink.addEventListener('ontouchstart', function (e) {
-    e.preventDefault();
-    const id = smoothLink.getAttribute('href');
-    document.querySelector(id).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+  // smoothLink.addEventListener('click', scrollTo);
+  smoothLink.addEventListener('click', clickHandler);
+  // smoothLink.addEventListener('click', function (e) {
+  //   e.preventDefault();
+  //   const id = smoothLink.getAttribute('href');
+  //   document.querySelector(id).scrollIntoView({
+  //     behavior: 'smooth',
+  //     block: 'start'
+  //   });
+  // });
+}
+
+// const links = document.querySelectorAll(".page-header ul a");
+// for (const link of links) {
+//   link.addEventListener("click", clickHandler);
+// }
+function clickHandler(e) {
+  e.preventDefault();
+  const href = this.getAttribute("href");
+  const offsetTop = document.querySelector(href).offsetTop;
+  scroll({
+    top: offsetTop,
+    behavior: "smooth"
   });
 }
+// const scrollTo=()=>{
+//       const step = 17;
+//       const id = smoothLink.getAttribute('href');
+//       const element = document.querySelector(id);
+//       if(element.offsetTop < window.pageYOffset + step){
+//          document
+//                  .documentElement
+//                  .scrollTo(0,element.offsetTop );
+//       }else{
+//          document
+//                  .documentElement
+//                  .scrollTo(0,window.pageYOffset+step);
+//       }
+//       if(element.offsetTop !== window.pageYOffset)requestAnimationFrame(scrollTo)
+
+
+// }
+
 // Валидация и отправка формы
 const form = document.querySelector('.form__feedback');
 const input = form.querySelector('.form__input');

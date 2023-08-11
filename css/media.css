@@ -44,6 +44,18 @@
     opacity: 0;
     visibility: hidden;
   }
+  .modal {
+    max-width: calc(100vw - 15px*2);
+    aspect-ratio: 16/9;
+  }
+  /* .modal__video {
+    margin-right: 40px;
+    width: 100%;
+  }
+  .modal__btn-close {
+    top: -40px;
+    right: -15px;
+  } */
   .form__link:focus-visible {
     color: var(--accent-color);
   }

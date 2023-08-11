@@ -19,11 +19,14 @@
         -ms-transform: translateX(64px);
             transform: translateX(64px);
   }
-  .filter__nav {
+  /* .filter__nav {
     gap: 20px;
-  }
+  } */
   .filter-nav__item {
     min-width: 170px;
+  }
+  .filter-nav__item:not(:last-child) {
+    margin-right: 20px;
   }
   .filter-nav__btn {
     padding: 12px 24px;
@@ -391,6 +394,9 @@
     -ms-grid-columns: 1fr 15px 1fr;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px 20px;
+  }
+  .filter-nav__item:not(:last-child) {
+    margin-right: 0px;
   }
   .error {
     font-size: 14px;

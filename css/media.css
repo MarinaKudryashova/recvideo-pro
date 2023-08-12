@@ -14,24 +14,24 @@
   .about__descr {
     font-size: 18px;
   }
-  .card__descr {
+  /* .card__descr {
     -webkit-transform: translateX(64px);
         -ms-transform: translateX(64px);
             transform: translateX(64px);
-  }
+  } */
   /* .filter__nav {
     gap: 20px;
   } */
-  .filter-nav__item {
+  /* .filter-nav__item {
     min-width: 170px;
-  }
+  } */
   .filter-nav__item:not(:last-child) {
     margin-right: 20px;
   }
-  .filter-nav__btn {
+  /* .filter-nav__btn {
     padding: 12px 24px;
     font-size: 20px;
-  }
+  } */
 }
 
 @media(max-width: 1024px) {
@@ -59,6 +59,9 @@
     top: -40px;
     right: -15px;
   } */
+    .card__title {
+    font-size: 64px;
+  }
   .form__link:focus-visible {
     color: var(--accent-color);
   }
@@ -181,17 +184,20 @@
     -ms-grid-column-span: 8;
     grid-column: 8 span;
   }
-  .card__title {
+  /* .card__title {
+    font-size: 62px;
+  } */
+  /* .card__title {
     font-size: 40px;
-  }
-  .card__descr {
+  } */
+  /* .card__descr {
     max-width: 300px;
     font-size: 18px;
     letter-spacing: 0.6px;
     -webkit-transform: translateX(64px);
         -ms-transform: translateX(64px);
             transform: translateX(64px);
-  }
+  } */
 }
 
 @media(max-width: 768px) {
@@ -251,7 +257,7 @@
   .promo__title {
     font-size: 38px;
   }
-  .advantages__list {
+  /* .advantages__list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -269,7 +275,8 @@
             justify-content: center;
     gap: 48px;
     padding: 0 var(--ofset-main);
-  }
+  } */
+
   .filter-nav__item {
     min-width: 120px;
   }
@@ -289,23 +296,27 @@
   .advantages__list {
     gap: 24px;
   }
-  .card__title {
+  /* .card__title {
     margin-bottom: 5px;
     width: 100%;
-  }
-  .card__title {
+  } */
+  /* .card__title {
     font-size: 28px;
+  } */
+  .card__title {
+    font-size: 48px;
   }
   .card__descr {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    max-width: 380px;
+    /* -ms-flex-item-align: end; */
+        /* align-self: flex-end; */
+    /* max-width: 380px; */
+    /* width: min(100%, 50%); */
     font-size: 16px;
     line-height: 175%;
-    letter-spacing: 0.6px;
-    -webkit-transform: none;
+    /* letter-spacing: 0.6px; */
+    /* -webkit-transform: none;
         -ms-transform: none;
-            transform: none;
+            transform: none; */
   }
   .form__descr {
     margin-bottom: var(--ofset-section);
@@ -390,6 +401,16 @@
   }
   .advantages__list {
     padding: 0;
+  }
+  .card__title {
+    font-size: 40px;
+  }
+  .card__descr {
+    align-self: flex-end;
+    /* max-width: 380px; */
+    margin-left: 0;
+    min-width: 290px;
+    /* width: 100%; */
   }
   .filter__nav {
     display: -ms-grid;

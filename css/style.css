@@ -167,6 +167,7 @@ body {
           align-items: center;
   padding-top: 67px;
   padding-bottom: 41px;
+  font-size: 0;
 }
 .header__logo {
   margin-right: 85px;

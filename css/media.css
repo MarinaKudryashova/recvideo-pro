@@ -149,6 +149,9 @@
     font-size: 20px;
     line-height: 68px;
   }
+  .promo__content {
+    height: calc(100vh - 122px);
+  }
   .promo__title {
     padding: 0 20px;
     font-size: 60px;

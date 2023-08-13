@@ -37,6 +37,10 @@
     max-width: calc(100vw - 15px*2);
     aspect-ratio: 16/9;
   } */
+  .filter-slider__btn-prev,
+  .filter-slider__btn-next {
+    display: none;
+  }
   .card__title {
     font-size: 72px;
   }

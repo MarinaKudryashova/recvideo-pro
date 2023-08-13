@@ -40,16 +40,19 @@ document.addEventListener('click', function(el) {
 
 
 const fiterBtns = document.querySelectorAll('.filter-nav__btn');
-const filterInfo = document.querySelectorAll('.filter-info__item');
-const filterList = document.querySelector('.filter__list');
-const filterSlider = document.querySelector('.filter-slider');
+const filterItems = document.querySelectorAll('.filter-info__item');
  // иницилизация slider-filter
 const releaseSlider = new Swiper('.filter-slider', {
   slideClass: 'filter-info__item',
-  // wrapperClass: 'filter-wrapper',
   wrapperClass: 'filter-info',
+  navigation: {
+    nextEl: '.filter-slider__btn-next',
+    prevEl: '.filter-slider__btn-prev',
+  },
   slidesPerView: 1.5,
   spaceBetween: 30,
+  observer: true,
+  observeParents: true,
 
   breakpoints: {
     // when window width is >= 320px
@@ -62,10 +65,20 @@ const releaseSlider = new Swiper('.filter-slider', {
       slidesPerView: 1.5,
       spaceBetween: 30,
     },
+    1024: {
+      slidesPerView: 1.45,
+      spaceBetween: 50,
+    },
+  },
+  a11y: {
+    enabled: true,
+    prevSlideMessage: 'Предыдущий слайд',
+    nextSlideMessage: 'Следующий слайд',
+    firstSlideMessage: 'Это первый слайд',
+    lastSlideMessage: 'Это последний слайд',
+    slideLabelMessage: 'Слайд {{index}} из {{slidesLength}}',
   },
 });
-// filterSlider.style.display = 'none';
-filterSlider.classList.add('visually-hidden');
 
 fiterBtns.forEach(function(btn) {
   btn.addEventListener('click', (event) => {
@@ -78,57 +91,25 @@ fiterBtns.forEach(function(btn) {
     event.currentTarget.setAttribute('data-active', 'true');
     releaseSlider.slideTo(0);
 
-    if(currentCategory == 'all') {
-      // filterSlider.style.display = 'none';
-      // filterList.style.display = 'grid';
-      filterSlider.classList.add('visually-hidden');
-      filterList.classList.remove('visually-hidden');
-    } else {
-      // filterSlider.style.display = 'block';
-      // filterList.style.display = 'none';
-      filterSlider.classList.remove('visually-hidden');
-      filterList.classList.add('visually-hidden');
-    }
-
-    filterInfo.forEach((info) => {
-      if(currentCategory !== 'all' && info.getAttribute('data-target') !== currentCategory) {
-        // info.setAttribute('data-hidden', 'true');
-        // info.classList.add('visually-hidden');
-        info.style.display = 'none';
+    filterItems.forEach((item) => {
+      if(currentCategory !== 'all' && item.getAttribute('data-target') !== currentCategory) {
+        item.style.display = 'none';
       } else {
-        // info.classList.remove('visually-hidden');
-        info.style.display = 'block';
-        //  info.setAttribute('data-hidden', 'false');
+        // item.style.display = '';
+        console.log (item.querySelector('.video'));
+        item.removeAttribute('style');
       }
     });
+    console.log (releaseSlider.getTranslate());
     releaseSlider.update();
   });
 });
 
-// открытие видео в модальном окне
-const btnsModalOpen = document.querySelectorAll('.btn-modal-open');
-const modalOverlay = document.querySelector('.overlay');
-const modal = document.querySelector('.modal');
-const video = document.querySelector('.modal__video');
-const btnsModalClose = document.querySelector('.modal__btn-close');
+// открытие видео
+// const modalOverlay = document.querySelector('.overlay');
+// const videoItems = document.querySelectorAll('.video');
+const videoBtns = document.querySelectorAll('.btn-play');
 
-let disableScroll = function() {
-  let paddingOffset = window.innerWidth - body.offsetWidth + 'px';
-  let paddingTop = window.scrollY;
-  body.dataset.position = paddingTop;
-  body.style.paddingRight = paddingOffset;
-  // body.style.top = -paddingTop + 'px';
-  body.classList.add('disable-scroll');
-}
-
-let enableScroll = function() {
-  let paddingTop = parseInt(body.dataset.position, 10);
-  body.style.paddingRight = '0px';
-  body.style.top = 'auto';
-  body.classList.remove('disable-scroll');
-  window.scroll({top: paddingTop, left: 0});
-  body.removeAttribute('data-position');
-}
 
 // получаем id видео
 function getVideoId(url) {
@@ -138,65 +119,161 @@ function getVideoId(url) {
 
 function createIframe(videoId) {
   let iframe = document.createElement('iframe');
-
   iframe.setAttribute('allowfullscreen', '');
   iframe.setAttribute('allow', 'autoplay');
+  iframe.setAttribute('frameborder', '0');
   iframe.setAttribute('src', generateURL(videoId));
-  iframe.classList.add('video__img');
-
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.classList.add('video__iframe');
   return iframe;
 }
 
 function generateURL(videoId) {
   let query = '?rel=0&showinfo=0&autoplay=1';
-
   return 'https://www.youtube.com/embed/' + videoId + query;
 }
 
-let modalOpen = function modalOpen(event) {
-  event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
-  let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
-  let videoId = getVideoId(videourl);
-  let iframe = createIframe(videoId);
-  video.appendChild(iframe);
-    modal.classList.add('modal--visible');
-    modalOverlay.classList.add('overlay--visible');
-    disableScroll();
+function checkLink(videoSrc) {
+  if (videoSrc.includes('https://youtu.be')) {
+    return true
+  } else {
+    return false
+  }
 }
-btnsModalOpen.forEach((btn) => {
-  btn.addEventListener('click', modalOpen);
-  btn.addEventListener('ontouchstart', modalOpen);
-});
 
-let modalClose = function() {
-  modal.classList.remove('modal--visible');
-  modalOverlay.classList.remove('overlay--visible');
-  if(video.querySelector('.video__img')) {
-    video.removeChild(video.querySelector('.video__img'));
+let videoClose = function(videoSrc) {
+  if(checkLink(videoSrc)) {
+    videoYoutube.removeChild(iframe);
+    videoYoutube.removeAttribute('style');
+    currentBtn.style.display = 'block';
+    btnClose.classList.add('visually-hidden');
+  } else {
+    videoBase.removeAttribute('src');
+    videoBase.removeAttribute('controls');
+    videoBase.pause();
+    videoBase.removeAttribute('style');
+    currentBtn.style.display = 'block';
+    btnClose.classList.add('visually-hidden');
   }
-  btnsModalOpen.forEach((btn) => {
-    btn.removeAttribute('style');
+
+}
+
+document.addEventListener ('click', (event) => {
+  console.log(event.target)
+});
+// releaseSlider.on('slideChange', function () {
+//   console.log('slide changed');
+// });
+videoBtns.forEach((videoBtn) => {
+  videoBtn.addEventListener('click', (event) => {
+
+    console.log(event.target)
+
+    let currentBtn = event.target;
+    let video = currentBtn.parentNode;
+    let videoSrc = video.getAttribute('data-src');
+    let videoYoutube = video.querySelector('.video__youtube');
+    let videoBase = video.querySelector('.video__base');
+
+    console.log(videoSrc);
+
+    if(checkLink(videoSrc)) {
+      console.log('это ютуб видео');
+      let videoId = getVideoId(videoSrc);
+      let iframe = createIframe(videoId);
+      videoYoutube.appendChild(iframe);
+      videoYoutube.style.display = 'flex';
+      currentBtn.style.display = 'none';
+      let btnClose = currentBtn.parentNode.querySelector('.video__btn-close')
+      btnClose.classList.remove('visually-hidden');
+      releaseSlider.disable();
+
+      btnClose.addEventListener('click', () => {
+        videoYoutube.removeChild(iframe);
+        videoYoutube.removeAttribute('style');
+        currentBtn.style.display = 'block';
+        btnClose.classList.add('visually-hidden');
+        releaseSlider.enable();
+      });
+      // btnClose.addEventListener('click', () => {videoClose()});
+    } else {
+      videoBase.setAttribute('src', videoSrc);
+      videoBase.setAttribute('controls', '');
+      videoBase.play();
+      // videoBase.setAttribute('autoplay', '');
+      videoBase.style.display = 'flex';
+      currentBtn.style.display = 'none';
+      let btnClose = video.querySelector('.video__btn-close')
+      btnClose.classList.remove('visually-hidden');
+      releaseSlider.disable();
+
+      btnClose.addEventListener('click', () => {
+        videoBase.removeAttribute('src');
+        videoBase.removeAttribute('controls');
+        // videoBase.setAttribute('autoplay', '');
+        videoBase.pause();
+        videoBase.removeAttribute('style');
+        currentBtn.style.display = 'block';
+        btnClose.classList.add('visually-hidden');
+        releaseSlider.enable();
+      });
+      console.log('видео с сервера');
+    }
+
   });
-  enableScroll();
-};
 
-// закрытие закрытие окна по close
-btnsModalClose.addEventListener('click', function(e) {
-  modalClose();
 });
 
-// закрытие закрытие окна по click
-modalOverlay.addEventListener('click', function(e) {
-  if(e.target == modalOverlay) {
-    modalClose();
-  }
-});
-// закрытие по esc
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    modalClose();
-  }
-});
+
+
+
+
+
+// let modalOpen = function modalOpen(event) {
+//   event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
+//   let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
+//   let videoId = getVideoId(videourl);
+//   let iframe = createIframe(videoId);
+//   video.appendChild(iframe);
+//     modal.classList.add('modal--visible');
+//     modalOverlay.classList.add('overlay--visible');
+//     disableScroll();
+// }
+// btnsModalOpen.forEach((btn) => {
+//   btn.addEventListener('click', modalOpen);
+//   btn.addEventListener('ontouchstart', modalOpen);
+// });
+
+// let modalClose = function() {
+//   modal.classList.remove('modal--visible');
+//   modalOverlay.classList.remove('overlay--visible');
+//   if(video.querySelector('.video__img')) {
+//     video.removeChild(video.querySelector('.video__img'));
+//   }
+//   btnsModalOpen.forEach((btn) => {
+//     btn.removeAttribute('style');
+//   });
+//   enableScroll();
+// };
+
+// // закрытие закрытие окна по close
+// btnsModalClose.addEventListener('click', function(e) {
+//   modalClose();
+// });
+
+// // закрытие закрытие окна по click
+// modalOverlay.addEventListener('click', function(e) {
+//   if(e.target == modalOverlay) {
+//     modalClose();
+//   }
+// });
+// // закрытие по esc
+// document.addEventListener('keydown', function(e) {
+//   if (e.key === 'Escape') {
+//     modalClose();
+//   }
+// });
 
 // плавный скролл по якорям
 const smoothLinks = document.querySelectorAll('a[href^="#"]');

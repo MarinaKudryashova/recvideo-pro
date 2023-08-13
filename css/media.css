@@ -37,6 +37,11 @@
     max-width: calc(100vw - 15px*2);
     aspect-ratio: 16/9;
   } */
+  .video__btn {
+    width: 90px;
+    height: 90px;
+    background-size: 90px 90px;
+  }
   .filter-slider__btn-prev,
   .filter-slider__btn-next {
     display: none;
@@ -229,6 +234,7 @@
   .filter-nav__btn {
     padding: 10px;
   }
+
   .advantages__item:not(:last-child) {
     margin-bottom: 24px;
   }
@@ -337,6 +343,11 @@
   }
   .filter-nav__item:not(:last-child) {
     margin-right: 0px;
+  }
+  .video__btn {
+    width: 60px;
+    height: 60px;
+    background-size: 60px 60px;
   }
   .error {
     font-size: 14px;

@@ -514,6 +514,7 @@ body {
   color: var(--white-color);
   background-color: var(--accent-color);
 }
+/* слайдер */
 .filter-slider {
   position: relative;
   overflow: hidden;
@@ -602,12 +603,21 @@ picture {
   inset: 50% 50%;
   width: 120px;
   height: 120px;
+  background: url('../img/play.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 120px 120px;
+  opacity: 0;
+  visibility: hidden;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      z-index: 10;
+  z-index: 10;
+  -webkit-transition: opacity .3s ease-in-out, visibility .3s ease-in-out ;
+  -o-transition: opacity .3s ease-in-out, visibility .3s ease-in-out ;
+  transition: opacity .3s ease-in-out, visibility .3s ease-in-out ;
 }
-.video__btn::before {
+/* .video__btn::before {
   content: url('../img/play.svg');
   position: absolute;
   inset: 50% 50%;
@@ -622,12 +632,12 @@ picture {
   -webkit-transition: opacity .3s ease-in-out, visibility .3s ease-in-out ;
   -o-transition: opacity .3s ease-in-out, visibility .3s ease-in-out ;
   transition: opacity .3s ease-in-out, visibility .3s ease-in-out ;
-}
+} */
 .video__btn:focus {
   outline: none;
 }
-.video:focus .video__btn::before,
-.video:hover .video__btn::before {
+.video:focus .video__btn,
+.video:hover .video__btn {
   opacity: 1;
   visibility: visible;
 }

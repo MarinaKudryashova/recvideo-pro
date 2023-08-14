@@ -85,7 +85,7 @@
       <section class="promo">
         <div class="container">
           <div class="promo__content">
-            <video class="promo__video" src="video/video.mp4" autoplay playsinline muted loop></video>
+            <video class="promo__video" src="video/video.mp4" autoplay playsinline poster="#" muted loop></video>
             <h1 class="promo__title wow fadeInUp" data-wow-duration="2s">Снимаем видео, которые смотрят</h1>
           </div>
         </div>
@@ -232,15 +232,6 @@
               </div>
             </div>
           </div>
-          <div class="release___modals overlay">
-            <div class="release___modal modal">
-              <button class="modal__btn-close btn-reset" type="button" aria-label="Закрыть модальное окно">
-                <span class="modal__lines"></span>
-              </button>
-              <div class="modal__video"></div>
-            </div>
-          </div>
-
         </div>
       </section>
       <section id="advantages" class="advantages">
@@ -260,12 +251,12 @@
               <p class="card__descr wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">Внимательно слушаем все пожелания клиента. Между нами все прозрачно.</p>
             </li>
             <li class="advantages__item card">
-              <h3 class="card__title  wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">ТВОРЧЕСТВО</h3>
-              <p class="card__descr  wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">Сначала думаем с&nbsp;художественной точки зрения, а&nbsp;потом о&nbsp;прибыли. Творчество вместо банальности</p>
+              <h3 class="card__title wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">ТВОРЧЕСТВО</h3>
+              <p class="card__descr wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">Сначала думаем с&nbsp;художественной точки зрения, а&nbsp;потом о&nbsp;прибыли. Творчество вместо банальности</p>
             </li>
             <li class="advantages__item card wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">
-              <h3 class="card__title  wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">бюджет</h3>
-              <p class="card__descr  wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">Цена креативного подхода не&nbsp;может быть дешевой, но и дополнительного&nbsp;% у&nbsp;нас нет. Все предельно четко.</p>
+              <h3 class="card__title wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">бюджет</h3>
+              <p class="card__descr wow fadeInLeft" data-wow-duration="2s" data-wow-offset="350">Цена креативного подхода не&nbsp;может быть дешевой, но и дополнительного&nbsp;% у&nbsp;нас нет. Все предельно четко.</p>
             </li>
           </ul>
         </div>
@@ -329,9 +320,10 @@
           </ul>
         </div>
       </section>
+      <div class="overlay"></div>
     </main>
     <footer class="footer">
-      <div class="footer__content container wow fadeIn" data-wow-duration="2s">
+      <div class="footer__content  wow fadeInUp" data-wow-duration="2s">
         <span class="footer__copy">©
           <span class="company-name"><span>REC</span>VIDEO.PRO</span>
           <span class="footer__text">, 2023</span>
@@ -342,6 +334,7 @@
   </div>
   <script src="lib/swiper-bundle.min.js"></script>
   <script src="lib/wow.min.js"></script>
+  <script src="js/observer.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -38,6 +38,7 @@ function createIframe(videoId) {
 
   iframe.setAttribute('allowfullscreen', '');
   iframe.setAttribute('allow', 'autoplay');
+  iframe.setAttribute('start', '0');
   iframe.setAttribute('src', generateURL(videoId));
   iframe.classList.add('video__img');
 
@@ -45,7 +46,7 @@ function createIframe(videoId) {
 }
 
 function generateURL(videoId) {
-  let query = '?rel=0&showinfo=0&autoplay=1';
+  let query = '?rel=0&showinfo=0&autoplay=1?start=0';
 
   return 'https://www.youtube.com/embed/' + videoId + query;
 }

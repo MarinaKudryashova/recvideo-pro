@@ -719,10 +719,10 @@ picture {
   transition: background-color .3s ease-in-out, border-color .3s ease-in-out;
 }
 .filter-slider__btn-prev {
-  left: 0;
+  left: 10px;
 }
 .filter-slider__btn-next {
-  right: 0;
+  right: 10px;
 }
 
 

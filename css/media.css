@@ -314,9 +314,9 @@
     padding: 0px;
     font-size: 28px;
   }
-  .about {
+  /* .about {
     padding-top: var(--ofset-section);
-  }
+  } */
   .about__slogan {
     margin-right: 0px;
     margin-bottom: 14px;

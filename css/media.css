@@ -59,15 +59,15 @@
 
   .burger {
     display: block;
-    position: fixed;
-    /* top: 0; */
-    top: var(--ofset-main);
-    right: 15px;
+    /* position: fixed; */
+    /* top: var(--ofset-header); */
+    /* right: 15px; */
     background-color: var(--white-color);
   }
   .fixed {
     position: fixed;
-    /* top: var(--ofset-header); */
+    top: var(--ofset-header);
+    right: 15px;
   }
   .burger::before {
     content: ' ';

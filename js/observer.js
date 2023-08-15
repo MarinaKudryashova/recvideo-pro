@@ -29,7 +29,9 @@ const animateObserver= new IntersectionObserver((entries, observer)=>{
       entry.target.classList.add('el-show');
 
     } else {
-      if (!entry.target.classList.contains('animate-no-repeat')) {
+      if (entry.target.classList.contains('animate-no-repeat')) {
+        observer.unobserve(entry.target);
+      } else {
         entry.target.classList.remove('el-show');
       }
     }
@@ -37,7 +39,7 @@ const animateObserver= new IntersectionObserver((entries, observer)=>{
 
 },{
   // rootMargin: "0px 0px -50px 0px",
-  threshold: [0.2, 0.5]
+  threshold: [0.5]
 });
 
 document.querySelectorAll('.el-aminated').forEach((animate) => {

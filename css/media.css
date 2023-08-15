@@ -61,13 +61,17 @@
     padding-top: 41px;
   } */
   .burger {
-    /* position: relative; */
     display: block;
     position: fixed;
-    /* top: 41px; */
+    /* top: 0; */
     top: var(--ofset-main);
     right: 15px;
     background-color: var(--white-color);
+    z-index: 99;
+  }
+  .fixed {
+    position: fixed;
+    /* top: var(--ofset-main); */
   }
   .burger::before {
     content: ' ';
@@ -304,7 +308,7 @@
   .menu {
     width: 100vw;
     min-width: 100%;
-    max-height: 100%;
+    /* max-height: 100%; */
   }
   .menu__btn {
     display: block;

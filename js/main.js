@@ -40,6 +40,7 @@ document.addEventListener('click', function(el) {
 
 
 const fiterBtns = document.querySelectorAll('.filter-nav__btn');
+const filter = document.querySelectorAll('.filter-info');
 const filterItems = document.querySelectorAll('.filter-info__item');
  // иницилизация slider-filter
 const releaseSlider = new Swiper('.filter-slider', {

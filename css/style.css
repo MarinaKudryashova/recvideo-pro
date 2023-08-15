@@ -1066,7 +1066,7 @@ picture {
 .about__slogan.el-aminated,
 .about__content .el-aminated:nth-child(n+1),
 .advantages__item .el-aminated {
-  opacity: 0;
+  opacity: 0.01;
   -webkit-transform: translateX(-15px);
   -ms-transform: translateX(-15px);
   transform: translateX(-15px);
@@ -1091,7 +1091,7 @@ picture {
 .contacts__mail.el-aminated,
 .form__feedback .el-aminated,
 .filter__nav.el-aminated {
-  opacity: 0;
+  opacity: 0.01;
   -webkit-transform: translateY(20px);
   -ms-transform: translateY(20px);
   transform: translateY(20px);
@@ -1109,7 +1109,7 @@ picture {
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
 .filter-slider.el-aminated {
-  opacity: 0;
+  opacity: 0.01;
   transform: scale(0.95);
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
@@ -1119,7 +1119,7 @@ picture {
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
 /* .header .el-aminated {
-  opacity: 0;
+  opacity: 0.01;
   -webkit-transform: translateY(-20px);
   -ms-transform: translateY(-20px);
   transform: translateY(-20px);

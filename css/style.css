@@ -1118,17 +1118,17 @@ picture {
   transform: scale(1);
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
-/* .header .el-aminated {
+.header.el-aminated {
   opacity: 0.01;
   -webkit-transform: translateY(-20px);
   -ms-transform: translateY(-20px);
   transform: translateY(-20px);
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
-.header .el-aminated.el-show {
+.header.el-aminated.el-show {
   opacity: 1;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
-} */
+}

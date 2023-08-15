@@ -9,10 +9,10 @@ let toggleNav = function toggleNav() {
   menu.classList.toggle('menu-open');
   if (burger.getAttribute('aria-label') === 'Открыть меню') {
     burger.setAttribute("aria-label", 'Закрыть меню');
-    disableScroll();
+    // disableScroll();
   } else {
     burger.setAttribute("aria-label", 'Открыть меню');
-    enableScroll();
+    // enableScroll();
   }
 }
 
@@ -229,55 +229,6 @@ videoBtns.forEach((videoBtn) => {
 });
 
 
-
-
-
-
-// let modalOpen = function modalOpen(event) {
-//   event.currentTarget.setAttribute('style', 'opacity: 0; visibility: hidden;')
-//   let videourl = event.currentTarget.parentNode.querySelector('.video__link').getAttribute('data-src');
-//   let videoId = getVideoId(videourl);
-//   let iframe = createIframe(videoId);
-//   video.appendChild(iframe);
-//     modal.classList.add('modal--visible');
-//     modalOverlay.classList.add('overlay--visible');
-//     disableScroll();
-// }
-// btnsModalOpen.forEach((btn) => {
-//   btn.addEventListener('click', modalOpen);
-//   btn.addEventListener('ontouchstart', modalOpen);
-// });
-
-// let modalClose = function() {
-//   modal.classList.remove('modal--visible');
-//   modalOverlay.classList.remove('overlay--visible');
-//   if(video.querySelector('.video__img')) {
-//     video.removeChild(video.querySelector('.video__img'));
-//   }
-//   btnsModalOpen.forEach((btn) => {
-//     btn.removeAttribute('style');
-//   });
-//   enableScroll();
-// };
-
-// // закрытие закрытие окна по close
-// btnsModalClose.addEventListener('click', function(e) {
-//   modalClose();
-// });
-
-// // закрытие закрытие окна по click
-// modalOverlay.addEventListener('click', function(e) {
-//   if(e.target == modalOverlay) {
-//     modalClose();
-//   }
-// });
-// // закрытие по esc
-// document.addEventListener('keydown', function(e) {
-//   if (e.key === 'Escape') {
-//     modalClose();
-//   }
-// });
-
 // плавный скролл по якорям
 const smoothLinks = document.querySelectorAll('a[href^="#"]');
 for (let smoothLink of smoothLinks) {
@@ -293,10 +244,6 @@ for (let smoothLink of smoothLinks) {
   // });
 }
 
-// const links = document.querySelectorAll(".page-header ul a");
-// for (const link of links) {
-//   link.addEventListener("click", clickHandler);
-// }
 function clickHandler(e) {
   e.preventDefault();
   const href = this.getAttribute("href");
@@ -486,4 +433,4 @@ form.addEventListener('submit', function(evt) {
 // );
 // wow.init();
 
-new WOW().init();
+// new WOW().init();

@@ -39,6 +39,7 @@
   --hover-color: #fff;
   --gap: 30px;
   --ofset-main: 50px;
+  --ofset-header: 50px;
   --animate-duration-title: 1s;
   --animate-duration-main: 1.5s;
   /* --ofset-section: 100px; */
@@ -164,8 +165,8 @@ body {
 }
 /* header */
 .header {
-  padding-top: var(--ofset-main);
-  padding-bottom: var(--ofset-main);
+  padding-top: var(--ofset-header);
+  padding-bottom: var(--ofset-header);
 }
 .header__container {
   display: -webkit-box;
@@ -300,7 +301,7 @@ body {
   border-radius: 100%;
   width: 40px;
   height: 40px;
-  z-index: 999;
+  z-index: 99;
   background-color: transparent;
   outline: none;
   cursor: pointer;

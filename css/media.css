@@ -57,9 +57,6 @@
 
 @media(max-width: 992px) {
 
-  /* .header__container {
-    padding-top: 41px;
-  } */
   .burger {
     display: block;
     position: fixed;
@@ -67,11 +64,10 @@
     top: var(--ofset-main);
     right: 15px;
     background-color: var(--white-color);
-    z-index: 99;
   }
   .fixed {
     position: fixed;
-    /* top: var(--ofset-main); */
+    /* top: var(--ofset-header); */
   }
   .burger::before {
     content: ' ';
@@ -94,6 +90,7 @@
     position: fixed;
     top: 0;
     right: 0;
+    opacity: 0.01;
     visibility: hidden;
     z-index: 10;
     overflow-y: auto;
@@ -108,11 +105,11 @@
     -webkit-transform: translateX(100%);
         -ms-transform: translateX(100%);
             transform: translateX(100%);
-    -webkit-transition: visibility .8s ease-in-out, -webkit-transform .8s ease-in-out;
-    transition: visibility .8s ease-in-out, -webkit-transform .8s ease-in-out;
-    -o-transition: visibility .8s ease-in-out, transform .8s ease-in-out;
-    transition: visibility .8s ease-in-out, transform .8s ease-in-out;
-    transition: visibility .8s ease-in-out, transform .8s ease-in-out, -webkit-transform .8s ease-in-out;
+    -webkit-transition: visibility .8s ease-in-out, opacity .8s ease-in-out, -webkit-transform .8s ease-in-out;
+    transition: visibility .8s ease-in-out, opacity .8s ease-in-out, -webkit-transform .8s ease-in-out;
+    -o-transition: visibility .8s ease-in-out, opacity .8s ease-in-out, transform .8s ease-in-out;
+    transition: visibility .8s ease-in-out, opacity .8s ease-in-out, transform .8s ease-in-out;
+    transition: visibility .8s ease-in-out, opacity .8s ease-in-out, transform .8s ease-in-out, -webkit-transform .8s ease-in-out;
   }
   .menu::before {
     content: '';
@@ -133,6 +130,7 @@
     text-transform: uppercase;
   }
   .menu-open {
+    opacity: 1;
     visibility: visible;
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
@@ -172,18 +170,10 @@
   :root {
     --ofset-main: 30px;
     --ofset-section: 50px;
-    --ofset-header: 50px;
   }
   .section-descr {
     font-size: 16px;
     line-height: 175%;
-  }
-  .header {
-    padding-top: var(--ofset-header);
-    padding-bottom: var(--ofset-header);
-  }
-  .burger {
-    top: var(--ofset-header);
   }
   .header__social {
     display: none;

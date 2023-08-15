@@ -1,5 +1,4 @@
 const videoObserver = new IntersectionObserver(([entry])=>{
-  console.log(entry);
   const videoBg = entry.target || {};
   // проверяем, что видео в принципе запускалось
   if (videoBg.currentTime !== 0) {
@@ -24,7 +23,6 @@ document.querySelectorAll('.promo__video').forEach((videoBg) => {videoObserver.o
 
 const animateObserver= new IntersectionObserver((entries, observer)=>{
   entries.forEach((entry) => {
-    console.log(entry);
     if (entry.isIntersecting) {
       entry.target.classList.add('el-show');
 
@@ -41,5 +39,4 @@ const animateObserver= new IntersectionObserver((entries, observer)=>{
 });
 
 document.querySelectorAll('.el-aminated').forEach((animate) => {
-  console.log(animate)
   animateObserver.observe(animate);});

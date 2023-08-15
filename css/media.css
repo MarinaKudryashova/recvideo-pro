@@ -260,11 +260,12 @@
     -webkit-box-align: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
-    gap: var(--ofset-main);
+    /* gap: var(--ofset-main); */
     max-width: 100%;
     width: 100%;
   }
   .form__label {
+    margin-bottom: var(--ofset-main);
     max-width: 100%;
   }
   .form__input {

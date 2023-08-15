@@ -92,12 +92,16 @@ fiterBtns.forEach(function(btn) {
     releaseSlider.slideTo(0);
 
     filterItems.forEach((item) => {
+      // if(item.classList.contains('el-show')) {
+        // item.classList.remove('el-show');
+      // }
       if(currentCategory !== 'all' && item.getAttribute('data-target') !== currentCategory) {
         item.style.display = 'none';
+        // item.classList.remove('el-show');
       } else {
-        // item.style.display = '';
         console.log (item.querySelector('.video'));
         item.removeAttribute('style');
+        // item.classList.add('el-show');
       }
     });
     console.log (releaseSlider.getTranslate());
@@ -106,8 +110,6 @@ fiterBtns.forEach(function(btn) {
 });
 
 // открытие видео
-// const modalOverlay = document.querySelector('.overlay');
-// const videoItems = document.querySelectorAll('.video');
 const videoBtns = document.querySelectorAll('.btn-play');
 
 

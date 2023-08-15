@@ -1061,6 +1061,7 @@ picture {
 }
 
 /* === animation === */
+.promo__title.el-aminated,
 .section-title.el-aminated,
 .section-descr.el-aminated,
 .about__slogan.el-aminated,
@@ -1072,6 +1073,7 @@ picture {
   transform: translateX(-15px);
   transition: transform var(--animate-duration-main) ease-in-out, opacity var(--animate-duration-main) ease-in-out;
 }
+.promo__title.el-aminated.el-show,
 .section-title.el-aminated.el-show,
 .section-descr.el-aminated.el-show,
 .advantages__item .el-aminated.el-show,
@@ -1089,8 +1091,7 @@ picture {
 .contacts__social-list.el-aminated,
 .contacts__mail.el-aminated,
 .form__feedback .el-aminated,
-.filter__nav.el-aminated,
-.promo__title.el-aminated {
+.filter__nav.el-aminated {
   opacity: 0;
   -webkit-transform: translateY(20px);
   -ms-transform: translateY(20px);
@@ -1101,8 +1102,7 @@ picture {
 .contacts__social-list.el-aminated.el-show,
 .contacts__mail.el-aminated.el-show,
 .form__feedback .el-aminated.el-show,
-.filter__nav.el-aminated.el-show,
-.promo__title.el-aminated.el-show {
+.filter__nav.el-aminated.el-show {
   opacity: 1;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -1119,7 +1119,7 @@ picture {
   transform: scale(1);
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
-.header .el-aminated {
+/* .header .el-aminated {
   opacity: 0;
   -webkit-transform: translateY(-20px);
   -ms-transform: translateY(-20px);
@@ -1132,4 +1132,4 @@ picture {
   -ms-transform: translateY(0);
   transform: translateY(0);
   transition: transform 2s ease-in-out, opacity 2s ease-in-out;
-}
+} */

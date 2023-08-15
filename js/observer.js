@@ -29,9 +29,7 @@ const animateObserver= new IntersectionObserver((entries, observer)=>{
       entry.target.classList.add('el-show');
 
     } else {
-      if (entry.target.classList.contains('animate-no-repeat')) {
-        observer.unobserve(entry.target);
-      } else {
+      if (!entry.target.classList.contains('animate-no-repeat')) {
         entry.target.classList.remove('el-show');
       }
     }

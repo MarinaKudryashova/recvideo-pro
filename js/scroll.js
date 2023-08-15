@@ -13,9 +13,8 @@ const burgerScroll = () => {
   if (scrollDistance > header.offsetTop - smallOffset) {
     burger.style.top = currentTopOffsetBurger;
   }
-  if (scrollDistance <= smallOffset) {
-    burger.style.top = `${smallOffset}px`;;
-  }
+  if (scrollDistance <= header.offsetTop + smallOffset) {
+    burger.style.top = `${smallOffset}px`;  }
 }
 
 burgerScroll();

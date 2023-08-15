@@ -598,8 +598,7 @@ picture {
   height: 100%;
 }
 .video__text img {
-  width: 300px;
-  height: 200px;
+  width: 75%;
   -o-object-fit: cover;
      object-fit: cover;
 }
